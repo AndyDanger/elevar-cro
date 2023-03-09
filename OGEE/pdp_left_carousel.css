@@ -1,0 +1,31 @@
+.product_gallery_nav {
+    display: none !important;
+}
+
+.gallery-wrap {
+    display: flex;
+    align-items: center;
+}
+
+#newDiv {
+    width: 20%;
+}
+
+.product_gallery {
+    padding-left: 2.5%;
+    width: 77.5% !important;
+}
+
+#newDiv div,
+#newDiv img {
+    text-align: center;
+    margin: auto;
+}
+
+#newDiv img {
+    border-left: 2px solid white;
+}
+
+#newDiv .slick-current img {
+    border-left: 2px solid rgb(64, 64, 64);
+}

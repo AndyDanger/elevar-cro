@@ -1,0 +1,25 @@
+.nextButton, .previousButton {
+    position: absolute;
+    background: #d6133a;
+    top: calc(50% - 20px);
+    color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    font-size: 36px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.nextButton {
+    right: 10px;
+}
+
+.previousButton {
+    left: 10px;
+}
+
+#ProductSection- .grid__item {
+    position: relative;
+}

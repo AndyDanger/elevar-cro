@@ -1,0 +1,38 @@
+#swipeIconsWrapper {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    #swipeIconsWrapper {
+        text-align: center;
+        margin-bottom: -55px;
+        margin-top: 5px;
+        z-index: 99;
+        display: block;
+    }
+    #arrowIconsWrapper {
+        margin-bottom: -8px;
+        font-size: 14px;
+    }
+    .fa-arrow-left {
+        margin-left: -11px;
+        padding-right: 5px;
+    }
+    .fa-hand-pointer {
+        font-size: 32px;
+    }
+    #swipeForMore {
+        font-size: 12px;
+        font-family: "Helvetica Neue", sans-serif;
+    }
+    .product-img-container {
+        max-height: none !important;
+    }
+    .product-img-container>.product-img-panel {
+        margin-bottom: 0px !important;
+        height: 100vw !important
+    }
+    .template-product .swiper-container {
+        padding-bottom: 0px !important;
+    }
+}

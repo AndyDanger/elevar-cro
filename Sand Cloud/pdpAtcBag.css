@@ -1,0 +1,14 @@
+[data-comp="AddToCart"] button {
+    display: inline-block;
+    padding: 0px 12px !important;
+}
+
+[data-comp="AddToCart"] svg {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    padding-top: 5px;
+    vertical-align: top;
+}
+

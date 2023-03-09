@@ -1,0 +1,56 @@
+progress {
+    display: none !important;
+}
+
+.newProgressBar {
+    width: 100%;
+    position: relative;
+    height: 21px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #404040;
+    overflow: hidden;
+}
+
+.indicator {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: all .2s ease-in-out;
+    width: 100%;
+    padding: 20px 0px;
+    text-align: center;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    background-size: contain;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: wave;
+    background-size: 200px 50%;
+    background-position-y: 5px;
+    background-color: #98dbce61;
+}
+
+.indicator:nth-of-type(2) {
+    animation-duration: 5s;
+    opacity: .5;
+}
+
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 200px;
+    }
+}

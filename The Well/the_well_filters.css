@@ -1,0 +1,36 @@
+.c-collectionFilter1 {
+    font-size: 14px;
+    padding: 20px;
+}
+
+#filtersDivCovid {
+    font-size: 20px;
+    font-family: "Times New Roman";
+    padding: 15px 0px;
+}
+
+#filtersDivCovidCategories>div {
+    padding: 5px 0px;
+}
+
+#filtersDivFilterBy {
+    padding-top: 30px;
+}
+
+.filtersDivCheckboxesDiv {
+    margin-top: 20px;
+}
+
+.filtersDivCheckboxHeader {
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.filtersDivCheckbox {
+    font-size: 14px;
+    padding: 5px 0px;
+}
+
+.filtersDivCheckbox>input {
+    margin-right: 5px;
+}

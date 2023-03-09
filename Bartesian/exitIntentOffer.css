@@ -1,0 +1,69 @@
+.newBanner {
+    position: relative;
+    display: block;
+    margin-bottom: -10px;
+}
+
+.bannerWrapper {
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.bannerHeader {
+    font-size: 32px;
+}
+
+.bannerText {
+    margin-top: 10px;
+    font-family: "Gotham Book";
+}
+
+.bannerButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: rgb(209, 68, 54);
+    display: inline-block;
+}
+
+.bannerButton:hover {
+    box-shadow: 0 0 0 0.3rem rgb(209 68 54);
+}
+
+@media only screen and (min-width: 750px) {
+    .bannerWrapper {
+        max-width: 50%;
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    .absoluteWrapper {
+        position: absolute;
+        width: 100%;
+        height: 95%;
+        left: 20px;
+    }
+
+    .bannerWrapper {
+        text-align: left;
+        width: 50%;
+        max-width: 650px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .bannerHeader {
+        font-size: 48px;
+    }
+
+    .bannerText {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    .bannerButton {
+        padding: 15px 25px;
+    }
+}

@@ -1,0 +1,21 @@
+#featuredInCarousel {
+    background: #424241;
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#featuredInCarousel img {
+    margin: 10px auto;
+}
+
+.slick-track {
+    display: flex !important;
+}
+
+.slick-track .slick-slide {
+    display: flex !important;
+    height: auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+}

@@ -1,0 +1,24 @@
+.prod-detail button {
+    border-radius: 4px;
+}
+
+button.cartText {
+    display: none;
+}
+
+button.continue-shopping {
+    color: #537f50;
+    border: 1px solid #537f50;
+    background-color: white !important;
+}
+
+button.continue-shopping:hover {
+    color: #537f50 !important;
+    background-color: white !important;
+}
+
+#pdpCheckoutButton {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-left: 0px !important;
+}

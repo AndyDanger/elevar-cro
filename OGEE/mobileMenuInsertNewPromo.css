@@ -1,0 +1,33 @@
+a.promoLink {
+    padding : 10px 20px;
+    display : block;
+    margin-bottom : 125px;
+    text-decoration-line : none;
+    text-decoration-thickness : initial;
+    text-decoration-style : initial;
+    text-decoration-color : initial;
+    border-bottom : 0px !important;
+  }
+  
+  a.promoLink button {
+    background : #404040;
+    color : white;
+    margin : 0px auto;
+    width : 50%;
+    text-align : center;
+    display : block;
+    text-decoration-line : none;
+    text-decoration-thickness : initial;
+    text-decoration-style : initial;
+    text-decoration-color : initial;
+    letter-spacing : 1.2px;
+    min-height : 4.2rem;
+    padding : 1rem 3rem;
+    border : 0px;
+    font-family : Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif !important;
+  }
+  
+  a.promoLink img {
+    width : 100%;
+  }
+  

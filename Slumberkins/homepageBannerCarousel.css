@@ -1,0 +1,121 @@
+#desktopCarousel,
+#mobileCarousel,
+#desktopCarousel .flickity-viewport,
+#mobileCarousel .flickity-viewport {
+    min-height: 450px;
+}
+
+.home-hero-section.with-carousel {
+    display: block !important;
+    aspect-ratio: auto !important;
+    background-image: none !important;
+    background-position: initial !important;
+    background-size: initial !important;
+    background-repeat: initial !important;
+    background-attachment: initial !important;
+    background-origin: initial !important;
+    background-clip: initial !important;
+    background-color: initial !important;
+}
+
+.bannerHeader {
+    margin-bottom: 15px;
+}
+
+.bannerDescription {
+    margin-bottom: 15px;
+}
+
+.bannerText {
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-family: var(--font-stack-header);
+    font-weight: 300;
+    line-height: 1.1;
+    z-index: 10;
+    bottom: 0px;
+}
+
+.bannerText .home-hero-section__button {
+    font-family: var(--font-stack-body);
+    display: block !important;
+}
+
+.home-hero-section__button {
+    display: none;
+}
+
+.carousel-cell:after {
+    background: linear-gradient(0deg, #000, transparent 90%);
+    content: "";
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+#desktopCarousel .bannerText {
+    padding: 0px 15px 150px 15px;
+}
+
+#mobileCarousel .bannerText {
+    padding: 0px 15px 85px 15px;
+}
+
+.home-hero-section__clouds {
+    pointer-events: none;
+}
+
+#desktopCarousel .carousel-cell {
+    width: 100%;
+    max-height: 800px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mobileCarousel .carousel-cell {
+    width: 100%;
+    max-height: 650px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flickity-page-dots {
+    margin-bottom: 70px;
+}
+
+.flickity-page-dots .dot {
+    background-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    #desktopCarousel {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    #mobileCarousel {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .home-hero-section:not(.with-carousel) {
+        background-image: url('https://imgur.com/wrIpcE1.gif') !important;
+    }
+}
+
+@media only screen and (min-width: 581px) {
+    .home-hero-section:not(.with-carousel) {
+        background-image: url('https://i.imgur.com/Wd1P9M4.gif') !important;
+    }
+}

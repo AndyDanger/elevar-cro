@@ -1,0 +1,10 @@
+#checkoutButton {
+    border: none;
+    background-color: rgb(255, 81, 0) !important;
+    color: white !important;
+}
+
+#checkoutButton:hover {
+    border: none;
+    background-color: #c93f00 !important;
+}

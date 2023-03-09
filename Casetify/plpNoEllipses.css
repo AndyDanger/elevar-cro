@@ -1,0 +1,11 @@
+.artwork-desc,
+.product-desc {
+    text-overflow: initial !important;
+    white-space: break-spaces !important;
+    overflow: auto !important;
+}
+
+.artwork-desc {
+    font-style: italic !important;
+    font-weight: normal !important;
+}

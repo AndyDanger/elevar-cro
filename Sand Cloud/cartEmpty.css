@@ -1,0 +1,125 @@
+#emptyCartSwiperContainer {
+    width : 100%;
+    height : 100%;
+    padding : 20px;
+  }
+  
+  #emptyCartSwiperContainer a {
+    text-align : center;
+    font-family : Gotham, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight : 500;
+    font-size : 16px;
+    line-height : 24px;
+    text-transform : uppercase;
+    height : 100%;
+    display : flex;
+    flex-direction : column;
+    justify-content : space-between;
+  }
+  
+  #emptyCartSwiperContainer button {
+    box-sizing : border-box;
+    margin : 16px 0px;
+    appearance : none;
+    display : inline-block;
+    text-decoration-line : none;
+    text-decoration-thickness : initial;
+    text-decoration-style : initial;
+    text-decoration-color : initial;
+    font-family : Gotham, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight : 500;
+    font-size : 15px;
+    text-transform : uppercase;
+    letter-spacing : -0.01em;
+    border-radius : 6px;
+    height : 48px;
+    line-height : 46px;
+    text-align : center;
+    border-width : 1px;
+    border-style : solid;
+    border-image-source : initial;
+    border-image-slice : initial;
+    border-image-width : initial;
+    border-image-outset : initial;
+    border-image-repeat : initial;
+    color : var(--theme-ui-colors-white);
+    white-space : nowrap;
+    overflow-x : hidden;
+    overflow-y : hidden;
+    text-overflow : ellipsis;
+    transition-duration : 0.3s;
+    transition-timing-function : ease-in-out;
+    transition-delay : 0s;
+    transition-property : all;
+    width : 100%;
+    min-width : 100px;
+    outline : none;
+    cursor : pointer;
+    background-color : var(--theme-ui-colors-black);
+    padding : 0px !important;
+  }
+  
+  #emptyCartSwiperContainer .swiper-wrapper {
+    display : grid;
+    grid-auto-columns : 1fr;
+    grid-auto-rows : 1fr;
+    grid-template-columns : repeat(4, 1fr);
+  }
+  
+  #emptyCartSwiperContainer .swiper-slide {
+    min-width : 100px;
+    max-width : 100px;
+  }
+  
+  [data-comp="Sidebar"] [data-comp="Empty"] {
+    flex-grow : 1;
+    flex-shrink : 1;
+    flex-basis : 0%;
+    padding-top : 5px;
+  }
+  
+  [data-comp="Sidebar"] [data-comp="Content"] {
+    height : 100%;
+    padding-top : 5px;
+  }
+  
+  #emptyCartCategoriesContainer a {
+    box-sizing : border-box;
+    margin : 32px 0px 0px 0px;
+    font-family : Gotham, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight : 500;
+    font-size : 15px;
+    text-transform : uppercase;
+    letter-spacing : -0.01em;
+    padding : 0px 48px;
+    border-radius : 6px;
+    cursor : pointer;
+    line-height : 46px;
+    min-width : 188px;
+    text-align : center;
+    background-color : var(--theme-ui-colors-white);
+    border-width : 1px;
+    border-style : solid;
+    border-image-source : initial;
+    border-image-slice : initial;
+    border-image-width : initial;
+    border-image-outset : initial;
+    border-image-repeat : initial;
+    color : var(--theme-ui-colors-dark);
+    white-space : nowrap;
+    overflow-x : hidden;
+    overflow-y : hidden;
+    text-overflow : ellipsis;
+    transition-duration : 0.3s;
+    transition-timing-function : ease-in-out;
+    transition-delay : 0s;
+    transition-property : all;
+    display : block;
+    width : auto;
+    height : auto;
+  }
+  
+  #emptyCartCategoriesContainer a:hover {
+    background-color : var(--theme-ui-colors-lightSeafoam);
+  }
+  

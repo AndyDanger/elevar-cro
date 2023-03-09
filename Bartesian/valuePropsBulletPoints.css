@@ -1,0 +1,13 @@
+.bundle-price-container {
+    display : grid !important;
+    margin-right : 45px !important;
+  }
+  
+  .bundle-description {
+    margin : 0px 0rem 1rem 0rem !important;
+  }
+  
+  .bundle-description-mobile {
+    text-align : center;
+  }
+  

@@ -1,0 +1,11 @@
+.discountedPrice {
+    text-decoration-line: line-through;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    display: block;
+}
+
+.ajaxcart__price {
+    white-space: nowrap;
+}

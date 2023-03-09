@@ -1,0 +1,10 @@
+.icon-item svg {
+    width: 32px;
+    height: 32px;
+}
+
+#creditCardIcon {
+    width: 60px;
+    height: 36px;
+    fill: white;
+}

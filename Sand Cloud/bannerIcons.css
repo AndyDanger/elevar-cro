@@ -1,0 +1,18 @@
+[data-comp="PromoBarMessageCopy"] img {
+    color: white;
+    stroke: white;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(345deg) brightness(100%) contrast(104%);
+    top: 34%;
+    height: 42px;
+    width: 42px;
+    padding: 5px 10px;
+    animation: shake 1.5s infinite;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(-15deg); }
+  50% { transform: translate(0px, 0px) rotate(15deg); }
+  100% { transform: translate(0px, 0px) rotate(-15deg); }
+}

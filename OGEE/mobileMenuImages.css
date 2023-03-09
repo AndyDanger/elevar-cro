@@ -1,0 +1,19 @@
+.mobileMenuImage {
+    width: 40px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.mobnav-dropdown a {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.mobnav-dropdown button[data-action=toggle-dropdown] {
+    max-height: 65px;
+    position: relative !important;
+    right: 0px !important;
+    top: 0px !important;
+    padding: 0px 10px !important;
+    transform: none !important;
+}

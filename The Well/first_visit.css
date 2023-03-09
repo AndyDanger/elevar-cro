@@ -1,0 +1,78 @@
+#module-7a40d8883c9e,
+#module-1ed605cc1597,
+#module-01f80ed32ef1,
+#module-6d3d77d0349e,
+#module-9ed5caa4ad72,
+#module-6158e9038c33 {
+    display: none !important;
+}
+
+.c-sidebarNavigation__primary {
+    margin-bottom: 20px !important;
+}
+
+#firstVisitBanner {
+    background-image: url("https://i.imgur.com/qBFir5y.jpg");
+    background-position-y: 50%;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background-size: cover;
+    height: 600px;
+    max-width: 1220px;
+    margin: 0px auto;
+    background-position-x: 50%;
+}
+
+#firstVisitBanner .c-carouselHero1__mainBody {
+    padding-top: 150px;
+    margin: 0px auto !important;
+}
+
+#firstVisitBanner p {
+    margin: 0px;
+}
+
+#firstVisitBanner .c-button {
+    margin: 0px auto !important;
+    display: block !important;
+}
+
+#firstVisitBookNow {
+    min-height: auto;
+    text-align: left;
+    padding-bottom: 60px;
+}
+
+#firstVisitBookNow .c-stripSplit1__content {
+    max-width: 40%;
+}
+
+#firstVisitBookNow .c-stripSplit1__imageWrapper {
+    padding-left: 5%;
+}
+
+#firstVisitBookNow button {
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+    #firstVisitBanner {
+        height: 500px;
+    }
+    #firstVisitBookNow {
+        text-align: center;
+    }
+    #firstVisitBookNow .c-stripSplit1__content {
+        max-width: 100%;
+    }
+    #firstVisitBookNow .c-stripSplit1__imageWrapper {
+        padding-left: 0px;
+    }
+}
+
+div.c-sidebar__overlay {
+    height: 844px;
+}

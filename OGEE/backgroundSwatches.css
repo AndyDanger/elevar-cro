@@ -1,0 +1,146 @@
+.heartSwatch {
+    padding: 0px 20px;
+}
+
+.textDiv {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: -20px;
+}
+
+@media only screen and (min-width: 767px) {
+    .heartSwatch {
+        margin-top: 25%;
+    }
+}
+
+.bronzeSection {
+    background-image: url("https://i.imgur.com/vt7gLfb.jpghttps://i.imgur.com/vt7gLfb.jpg");
+    background-position: center center;
+    background-size: contain;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background-repeat: no-repeat no-repeat;
+    max-width: none !important;
+}
+
+.blushSection {
+    background-image: url("https://i.imgur.com/gdtFcdR.jpg");
+    background-position: center center;
+    background-size: contain;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background-repeat: no-repeat no-repeat;
+    max-width: none !important;
+}
+
+.highlightSection {
+    background-image: url("https://i.imgur.com/6pmbtSf.jpg");
+    background-position: center center;
+    background-size: contain;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background-repeat: no-repeat no-repeat;
+    max-width: none !important;
+}
+
+.bronzeSection>.shg-row,
+.blushSection>.shg-row,
+.highlightSection>.shg-row {
+    max-width: 880px;
+    margin: 0px auto;
+    padding: 0px 10px;
+}
+
+.bronzeSection div,
+.blushSection div,
+.highlightSection div {
+    max-width: 350px;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.bronzeSection>.shg-row>div:nth-child(1),
+.blushSection>.shg-row>div:nth-child(2),
+.highlightSection>.shg-row>div:nth-child(1) {
+    margin-top: 17.5%;
+}
+
+.bronzeSection *,
+.blushSection * {
+    color: white !important;
+}
+
+.bronzeSection .shg-row>div>div:first-child p>span>span,
+.blushSection .shg-row>div>div:first-child p>span>span,
+.highlightSection .shg-row>div>div:first-child p>span>span {
+    font-size: 40px !important;
+}
+
+.bronzeSection .shg-row>div>div:not(:first-child) p>span,
+.blushSection .shg-row>div>div:not(:first-child) p>span,
+.highlightSection .shg-row>div>div:not(:first-child) p>span {
+    font-size: 22px !important;
+}
+
+
+@media only screen and (max-width: 1100px) {
+
+    .bronzeSection>.shg-row>div:nth-child(1),
+    .blushSection>.shg-row>div:nth-child(2),
+    .highlightSection>.shg-row>div:nth-child(1) {
+        padding: 0px 15px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .bronzeSection .shg-row>div>div p>span>span,
+    .blushSection .shg-row>div>div:nth-child(2) p>span>span,
+    .highlightSection .shg-row>div>div p>span>span {
+        font-size: 28px !important;
+    }
+
+    .bronzeSection .shg-row>div>div:not(:first-child) p,
+    .blushSection .shg-row>div>div:not(:first-child) p,
+    .highlightSection .shg-row>div>div:not(:first-child) p {
+        line-height: 24px !important;
+    }
+
+    .bronzeSection .shg-row>div>div:not(:first-child) p>span,
+    .blushSection .shg-row>div>div:not(:first-child) p>span,
+    .highlightSection .shg-row>div>div:not(:first-child) p>span {
+        font-size: 18px !important;
+    }
+
+    .bronzeSection,
+    .blushSection,
+    .highlightSection {
+        text-align: center;
+        margin-left: -30px !important;
+        margin-right: -30px !important;
+        background-size: auto !important;
+    }
+
+    .bronzeSection,
+    .highlightSection {
+        background-position: right -80px center !important;
+    }
+
+    .blushSection {
+        background-position: left -80px center !important;
+    }
+
+    .bronzeSection>.shg-row>div:nth-child(1),
+    .blushSection>.shg-row>div:nth-child(2),
+    .highlightSection>.shg-row>div:nth-child(1) {
+        margin-top: 10%;
+    }
+}

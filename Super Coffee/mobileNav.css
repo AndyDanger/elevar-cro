@@ -1,0 +1,40 @@
+.dd-arrow {
+    transform: translate(0px, 0px);
+}
+
+.arrowFlipped {
+    transform: rotate(180deg) !important;
+}
+
+#main-navigation .left,
+#mobile-menu--list,
+#mobile-menu--shop,
+#mobile-menu-hammy,
+#mobile-menu--learn {
+    display: none !important;
+}
+
+.mobile-menu--list {
+    padding: 15px;
+}
+
+#newMobileNav li {
+    font-size: 18px;
+}
+
+
+#navLearnList {
+    margin-bottom: 0px !important;
+}
+
+#mobile-menu .scroll-wrap {
+    padding-top: 80px !important;
+}
+
+#newMobileNav .nav-section > .mobile-menu--list {
+    padding-left: 0px !important;
+}
+
+#newWrapper > div {
+   opacity: 1 !important;
+}

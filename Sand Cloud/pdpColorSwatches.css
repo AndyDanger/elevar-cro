@@ -1,0 +1,7 @@
+.swatchesDiv.hide {
+    display: none !important;
+}
+
+[slide-id] {
+    margin: 0px 4px !important;
+}

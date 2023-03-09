@@ -1,0 +1,14 @@
+.product_gallery_nav {
+    display: none !important;
+}
+
+#newDiv div,
+#newDiv img {
+    text-align: center;
+    margin: auto;
+}
+
+#newDiv .slick-current img {
+    border-bottom: 2px solid rgb(64, 64, 64);
+    padding-bottom: 5px;
+}

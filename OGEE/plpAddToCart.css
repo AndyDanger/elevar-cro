@@ -1,0 +1,22 @@
+.addToCartDiv,
+.viewDetailsDiv {
+  text-align: center;
+}
+
+.addToCartDiv button,
+.viewDetailsDiv a {
+  background-color: #404040;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+div.thumbnail a[itemprop="url"] {
+  height: calc(100% - 55px);
+}
+
+.product-grid .grid__item {
+  display: inline-grid;
+  align-content: space-between;
+}

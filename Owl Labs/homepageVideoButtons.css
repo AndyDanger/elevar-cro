@@ -1,0 +1,80 @@
+#owl-app #play2 {
+  z-index: 9999;
+  top: 0px;
+  transition-duration: 0s, 0.5s;
+  transition-timing-function: ease, linear;
+  transition-delay: 0s, 0s;
+  transition-property: visibility, opacity;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 0px;
+  margin-top: 40px !important;
+}
+
+#videotitle1 {
+  opacity: 0;
+  transition-duration: 0s, 0.5s;
+  transition-timing-function: ease, linear;
+  transition-delay: 0s, 0s;
+  transition-property: visibility, opacity;
+}
+
+/* div.section-hero1>button:nth-of-type(1) {
+  visibility: visible;
+  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 0s, 1s;
+  transition-timing-function: ease, linear;
+  transition-delay: 0s, 0s;
+  transition-property: visibility, opacity;
+} */
+
+/* main:not(.hero-pinned) #videotitle1 {
+  visibility: visible;
+  opacity: 1;
+}
+
+#owl-app main:not(.hero-pinned) #play2 {
+  visibility: visible;
+  opacity: 1;
+} */
+
+#videotitle1 {
+  z-index: 9999;
+  left: 0px;
+  right: 0px;
+  top: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 75%;
+  max-width: 600px;
+  min-width: 100px;
+  color: rgb(255, 255, 255) !important;
+  position: relative !important;
+  display: block !important;
+}
+
+#videotitle1 h4 {
+  line-height: 40px;
+}
+
+#owl-app>main>div:nth-of-type(2)>div {
+  display: none;
+}
+
+
+.play-button {
+  position: relative !important;
+}
+
+.play-button:not(#play2) {
+  bottom: 15vh !important;
+  float: right;
+}
+
+main:not(.hero-pinned) .play-button:not(#play2) {
+  display: none;
+}

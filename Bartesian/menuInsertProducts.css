@@ -1,0 +1,14 @@
+#mobileMenuSwiper {
+    width: 90%;
+    text-align: center;
+    min-height: 350px;
+}
+
+#mobileMenuSwiper img {
+    max-width: 200px;
+    max-height: 200px
+}
+
+.menu-drawer__navigation-container {
+    overflow-y: scroll !important;
+}

@@ -1,0 +1,23 @@
+#bottomNav {
+    position: fixed;
+    bottom: 0px;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    background: white;
+    padding: 5px 10px 10px 10px
+}
+
+.bottomNavDiv {
+    width: 25%;
+    text-align: center;
+}
+
+.bottomNavDiv i {
+    padding: 10px 0px;
+    font-size: 18px;
+}
+
+.bottomNavDiv div {
+    font-size: 12px;
+}

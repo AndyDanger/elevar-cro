@@ -1,0 +1,310 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2021-04-14 19:37:49",
+    "containerVersion": {
+        "path": "accounts/1164259306/containers/43668070/versions/0",
+        "accountId": "1164259306",
+        "containerId": "43668070",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/1164259306/containers/43668070",
+            "accountId": "1164259306",
+            "containerId": "43668070",
+            "name": "Vimeo recipe GA4",
+            "publicId": "GTM-P62N33X",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1618424794810",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/1164259306/containers/43668070/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "tagId": "5",
+                "name": "cHTML - vimeo listener",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!--\nGoogle Analytics Tag Manager (V2) custom HTML tag for Vimeo video tracking\n\nCopyright 2016, Cardinal Path, Inc.\n\nOriginal author: Bill Tripple <btripple@cardinalpath.com>\nRevised by: Bogdan Bistriceanu <bbistriceanu@cardinalpath.com>\nUpdated by: Julius Fedorovicius <julius@analyticsmania.com> and Richard Outram <Richard.Outram@simmbiotic.com>\n\nVersion 2.1\n-->\n<script>\n\nvar dataLayer = (typeof(dataLayer) !== \"undefined\" && dataLayer instanceof Array) ? dataLayer : [];\nvar videoLabels=[];\nvar lastP=[];\n\n//we declare variables that will hold information about the video being played\nvar _playerTitle = {}, _playerAuthor = {}, _playerAuthorURL = {}, _playerUploadDate = {}; \n\ntry{\n init();\n}\ncatch(err){\n dataLayer.push({\n 'event': 'gtm.error',\n 'errorMessage': e.message,\n 'tag': 'Vimeo Video Listener'\n })\n}\nfunction init(){\n try{\n var player=document.getElementsByTagName(\"iframe\");\n for (i = 0; i < player.length; ++i) {\n var url=player[i].getAttribute(\"src\");\n\n if(/player\\.vimeo\\.com\\/video/.test(url)){ // vimeo iframe found\n if(!player[i].hasAttribute(\"id\")){ // id attribute missing\n player[i].setAttribute(\"id\",\"vimeo_id_\"+i); // add id attribute\n }\n var urlUpdated=false;\n if(!/api=/.test(url)){ // check to see if api parameter is in src attribute\n url=updateUrl(url,\"api\",1);\n urlUpdated=true;\n }\n\n if(!/player_id=/.test(url)){ // check if player_id is in src attribute\n url=updateUrl(url,\"player_id\",player[i].getAttribute(\"id\"));\n urlUpdated=true;\n }\n if(urlUpdated){ // repopulate src attribute with added parameters\n player[i].setAttribute(\"src\",url)\n }\n videoLabels[player[i].getAttribute(\"id\")]=player[i].getAttribute(\"src\"); // id to label dictionary\n }\n }\n\n // Listen for messages from the player\n if (window.addEventListener){\n window.addEventListener('message', onMessageReceived, false);\n }\n else {\n window.attachEvent('onmessage', onMessageReceived, false);\n }\n }\n catch(err){\n }\n}\n\nfunction updateUrl(url,param,value){\n try{\n return url+((/\\?/.test(url)) ? \"&\" : \"?\")+param+\"=\"+value; \n }\n catch(err){\n }\n}\n\n// Handle messages received from the player\nfunction onMessageReceived(e) {\n try{\n var data = e.data;\n \n if(typeof data === \"string\"){\n data = JSON.parse(data);\n }\n \n switch (data.event) {\n case 'ready':\n onReady(data);\n break;\n case 'play':\n onPlay(data);\n break;\n case 'pause':\n onPause(data);\n break;\n case 'timeupdate':\n onPlayProgress(data);\n break;\n }\n }\n catch(err){\n }\n}\n\n// Helper function for sending a message to the player\nfunction post(action, value) {\n try{\n var data = {\n method: action\n };\n\n if (value) {\n data.value = value;\n }\n\n var message = JSON.stringify(data);\n var player = document.getElementsByTagName(\"iframe\");\n var url;\n var prot;\n\n\n for (i = 0; i < player.length; ++i) {\n url=player[i].getAttribute(\"src\");\n\n if(/player\\.vimeo\\.com\\/video/.test(url)){\n // Check if protocol exists\n prot = player[i].getAttribute('src').split('?')[0].split('//')[0];\n\n // If protocol doesn't exist, then need to append to \"url\"\n if (!prot){\n url=\"https:\" + player[i].getAttribute(\"src\").split('?')[0];\n }\n player[i].contentWindow.postMessage(data, url);\n }\n }\n }\n catch(err){\n }\n}\n\nfunction getLabel(id){\n try{\n return videoLabels[id].split('?')[0].split('/').pop();\n }\n catch(err){\n }\n}\n\n//our function that will use the Vimeo oEmbed API to retrieve additional information about the video\nfunction getVimeoInfo(url, callback) {\n \n var script = document.createElement('script');\n script.type = 'text/javascript';\n script.src = url;\n \n document.getElementsByTagName('body')[0].appendChild(script);\n}\n\n//the callback function which takes the data received from the Vimeo oEmbed API and places it into the corresponding objectes\nfunction vimeoCallback(e){\n //console.log(e);\n _playerTitle[e['video_id']] = e['title'];\n _playerAuthor[e['video_id']] = e['author_name']\n _playerAuthorURL[e['video_id']] = e['author_url']\n _playerUploadDate[e['video_id']] = e['upload_date']\n}\n\nfunction onReady(data) {\n try{\n //execute our function which queries the Vimeo oEmbed API once the embedded videos are \"ready\"\n getVimeoInfo(\"https://www.vimeo.com/api/oembed.json?url=https://vimeo.com/\"+getLabel(data.player_id)+\"&callback=vimeoCallback\", vimeoCallback);\n\n post('addEventListener', 'play');\n post('addEventListener', 'pause');\n post('addEventListener', 'finish');\n post('addEventListener', 'playProgress');\n }\n catch(err){\n }\n}\n\nfunction onPlay(data){\n try{\n var t = data.data.duration - data.data.seconds <= 1.5 ? 1 : (Math.floor(data.data.seconds / data.data.duration * 4) / 4).toFixed(2); \n dataLayer.push({\n event: \"video\",\n video_action: \"play\",\n video_url: 'https://vimeo.com/' + getLabel(data.player_id),\n video_percent: data.data.percent.toFixed(2) * 100,\n video_title: _playerTitle[getLabel(data.player_id)].toLowerCase()\n });\n }\n catch(err){\n }\n}\n\nfunction onPause(data){\n try{\n var t = data.data.duration - data.data.seconds <= 1.5 ? 1 : (Math.floor(data.data.seconds / data.data.duration * 4) / 4).toFixed(2); \n dataLayer.push({\n event: \"video\",\n video_action: \"pause\",\n video_url: 'https://vimeo.com/' + getLabel(data.player_id),\n video_percent: data.data.percent.toFixed(2) * 100,\n video_title: _playerTitle[getLabel(data.player_id)].toLowerCase()\n });\n }\n catch(err){\n }\n}\n\n// Track progress: 25%, 50%, 75%, 100%\nfunction onPlayProgress(data) {\n try{\n var t = data.data.duration - data.data.seconds <= 1.5 ? 1 : (Math.floor(data.data.seconds / data.data.duration * 4) / 4).toFixed(2); if (!lastP[data.player_id] || t > lastP[data.player_id]) {\n lastP[data.player_id]=t;\n if (parseFloat(t) != 0){\n dataLayer.push({\n event: \"video\",\n video_action: \"progress\",\n video_url: 'https://vimeo.com/' + getLabel(data.player_id),\n video_percent: t * 100,\n video_title: _playerTitle[getLabel(data.player_id)].toLowerCase()\n })\n }\n }\n }\n catch(err){\n }\n}\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1618425354160",
+                "firingTriggerId": [
+                    "4"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                }
+            },
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "tagId": "11",
+                "name": "GA4 event - vimeo video",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "video_{{dlv - video_action}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "eventParameters",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "name",
+                                        "value": "video_percent"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{dlv - video_percent}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "name",
+                                        "value": "video_title"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{dlv - video_title}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "name",
+                                        "value": "video_url"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{dlv - video_url}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementId",
+                        "value": "none"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "{{ADD YOUR GA4 CONFIG TAG IN THE FIELD ABOVE}}"
+                    }
+                ],
+                "fingerprint": "1618429036346",
+                "firingTriggerId": [
+                    "10"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "triggerId": "4",
+                "name": "Window Loaded - vimeo player is on a page",
+                "type": "WINDOW_LOADED",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{cjs - is vimeo player on a page}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1618425325962"
+            },
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "triggerId": "10",
+                "name": "custom - video",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "video"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1618425470137"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "variableId": "3",
+                "name": "cjs - is vimeo player on a page",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "function () {\n for (var e = document.getElementsByTagName(\"iframe\"), x=0; x < e.length; x++) {\n if (/^https?:\\/\\/player.vimeo.com/.test(e[x].src)) {\n return true;\n }\n }\n return false;\n}"
+                    }
+                ],
+                "fingerprint": "1618425307720",
+                "formatValue": {}
+            },
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "variableId": "6",
+                "name": "dlv - video_action",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "video_action"
+                    }
+                ],
+                "fingerprint": "1618425375587",
+                "formatValue": {}
+            },
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "variableId": "7",
+                "name": "dlv - video_url",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "video_url"
+                    }
+                ],
+                "fingerprint": "1618425387175",
+                "formatValue": {}
+            },
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "variableId": "8",
+                "name": "dlv - video_percent",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "video_percent"
+                    }
+                ],
+                "fingerprint": "1618425398442",
+                "formatValue": {}
+            },
+            {
+                "accountId": "1164259306",
+                "containerId": "43668070",
+                "variableId": "9",
+                "name": "dlv - video_title",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "video_title"
+                    }
+                ],
+                "fingerprint": "1618425409308",
+                "formatValue": {}
+            }
+        ],
+        "fingerprint": "1618429069913",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/1164259306/containers/43668070/versions/0?apiLink=version"
+    }
+}

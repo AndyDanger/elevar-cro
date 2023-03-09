@@ -1,0 +1,19 @@
+@media screen and (max-width: 550px) {
+    .card-wrapper {
+        padding: 0rem 0rem 1rem 0rem !important;
+    }
+}
+
+@media screen and (min-width: 551px) {
+    .card-wrapper {
+        padding: 0rem 2rem 2rem 2rem !important;
+    }
+}
+
+.collection-grid-section {
+    padding-top: 1rem !important;
+}
+
+.collection-filters filter-dropdown-mob .filter__btn-wrapper {
+    margin-bottom: 1rem !important;
+}

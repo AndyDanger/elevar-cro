@@ -1,0 +1,21 @@
+#mobileMenuPromo {
+    text-align: center;
+    padding: 0px 20px;
+    margin-bottom: 40px;
+}
+
+#mobileMenuPromo a {
+    color: black;
+    text-decoration-line: initial;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: black;
+}
+
+#mobileMenuPromo img {
+    width: 100%;
+}
+
+#mobileMenuPromo .button {
+    margin-top: 10px;
+}

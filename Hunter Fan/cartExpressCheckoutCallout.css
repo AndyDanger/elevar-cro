@@ -1,0 +1,11 @@
+#expressCheckoutCallout {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0px 15px;
+    margin-top: 15px;
+}
+
+svg.payment-icon {
+    margin: 4px 2px 0px 2px;
+}

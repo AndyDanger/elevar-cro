@@ -1,0 +1,24 @@
+.addToCartButton {
+    width: auto;
+    padding: 5px 15px;
+    margin: 0px auto;
+    text-align: center;
+    display: block;
+    min-width: 135px;
+}
+
+.grid-product__meta {
+    text-align: center;
+}
+
+.grid-product__price {
+    display: block !important;
+}
+
+.grid-product__wrapper span.tw-space-x-2.tw-flex {
+    justify-content: center !important;
+}
+
+.grid-product__wrapper span.tw-space-x-2.tw-flex button {
+    margin-bottom: 10px;
+}

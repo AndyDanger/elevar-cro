@@ -1,0 +1,62 @@
+#stickyWrapper {
+    display: none;
+    height: 70px;
+    bottom: 0px;
+    position: sticky;
+    background: white;
+    box-shadow: grey 0px 0px 5px;
+}
+
+#stickyElement {
+    display: flex;
+}
+
+#stickyElement .leftDiv {
+    width: 70px;
+}
+
+#stickyElement .leftDiv img {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+}
+
+#stickyElement .middleDiv {
+    overflow: hidden;
+}
+
+#stickyElement .topDiv {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#stickyElement .middleDiv .topDiv {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#stickyElement .middleDiv .bottomDiv {
+    font-size: 12px;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#stickyElement .rightDiv {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    margin-left: auto;
+    min-width: 145px;
+}
+
+#stickyElement .rightDiv .btn--black {
+    padding: 5px 15px;
+    text-align: center;
+}

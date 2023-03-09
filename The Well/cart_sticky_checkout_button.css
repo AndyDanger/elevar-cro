@@ -1,0 +1,16 @@
+.c-sidebarCart__summary {
+    position: fixed !important;
+    bottom: 0px !important;
+    background: white !important;
+    z-index: 5 !important;
+    height: 135px !important;
+    box-shadow: 0px 0px 10px grey !important;
+    right: 0px !important;
+    width: 100% !important;
+    padding: 15px 20px !important;
+    max-width: 500px !important;
+}
+
+aside {
+    padding-bottom: 105px !important;
+}

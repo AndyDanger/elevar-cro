@@ -1,0 +1,12 @@
+.slick-slide img {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.slick-dots {
+    margin: 0px !important;
+}
+
+.product-grid-item .product__grid__info--under {
+    padding-top: 0px !important;
+}

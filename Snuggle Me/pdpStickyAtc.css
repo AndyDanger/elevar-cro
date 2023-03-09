@@ -1,0 +1,24 @@
+.tw-fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    background: white;
+    bottom: 0px;
+    left: 0px;
+    padding: 15px 20px 10px 20px;
+    border-top: 1px solid #a4b3b7;
+}
+
+#chat-button {
+    bottom: 100px !important;
+    right: 10px !important
+}
+
+.grecaptcha-badge {
+    bottom: 190px !important;
+}
+
+#attentive_overlay > iframe {
+    left: 5px !important;
+    bottom: 115px !important;
+}

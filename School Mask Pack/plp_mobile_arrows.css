@@ -1,0 +1,48 @@
+.fa-chevron-left,
+.fa-chevron-right {
+    position: absolute;
+    top: calc(50% - 19px);
+    color: black;
+    font-size: 28px;
+    opacity: 0.3;
+    z-index: 99;
+    padding: 10px;
+}
+
+.fa-chevron-left {
+    left: -5px;
+}
+
+.fa-chevron-right {
+    right: -5px;
+}
+
+.circles {
+    font-size: 8px;
+    padding-bottom: 5px;
+}
+
+.fa-circle {
+    margin: 0px 5px;
+    color: grey;
+}
+
+.fa-circle.active {
+    color: black;
+}
+
+.opaque {
+    opacity: 1 !important;
+}
+
+.transparent {
+    opacity: 0 !important;
+}
+
+.product-grid-item>div {
+    position: relative;
+}
+
+.collection__image__bottom {
+    display: block !important;
+}

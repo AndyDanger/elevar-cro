@@ -1,0 +1,35 @@
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="2"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="3"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="4"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="5"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="6"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="7"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="8"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="9"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="10"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="11"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="12"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="13"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="14"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="15"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="16"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="17"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="18"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="19"],
+[data-test="scroll-viewer-wrap"]:not(.loadImages) button.assetWrapper[data-index="20"] {
+    display: none;
+}
+
+[data-test="scroll-viewer-wrap"].loadImages #loadMoreButton {
+    display: none;
+}
+
+#loadMoreButton {
+    color: white;
+    background: rgb(83, 127, 80);
+    padding: 10px 25px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: auto !important;
+}

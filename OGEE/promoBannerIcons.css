@@ -1,0 +1,16 @@
+.announcement-bar.announcement-bar--link {
+    display: inline-flex;
+}
+
+img.lipstickGif {
+    height: 44px;
+    margin-top: 2.5%;
+    padding: 0px 10px;
+    margin-left: -2.5%;
+}
+
+@media only screen and (max-width: 340px) {
+    .announcement-bar.announcement-bar--link .line_1 {
+        font-size: 14px;
+    }
+}

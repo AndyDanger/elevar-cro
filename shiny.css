@@ -1,0 +1,65 @@
+.shiny {
+    width: 100%;
+    padding: 20px 0px;
+    text-align: center;
+    background-image: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgba(255, 255, 255, 0.3) 25%, rgba(0, 0, 0, 0) 50%);
+    background-position: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-size: 200% 100%;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: shine;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.gold {
+    background-color: rgb(218, 169, 0);
+}
+
+.black {
+    background-color: black;
+}
+
+.green {
+    background-color: green;
+}
+.white {
+  background-color: white;
+}
+
+.center {
+  width: 50%;
+  margin: 0px auto;
+}
+
+.overlay {
+  position: absolute;
+    height: 200px;
+    width: 50%;
+}
+
+img {
+  height: 200px;
+  width: 100%;
+}
+
+@keyframes shine {
+    0% {
+        background-position: right;
+    }
+}

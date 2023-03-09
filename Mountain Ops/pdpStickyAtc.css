@@ -1,0 +1,23 @@
+.tw-fixed {
+    position: fixed;
+    z-index: 99;
+    bottom: 0px;
+    padding: 20px;
+    max-width: 95%;
+    text-align: center;
+    margin: 2.5%;
+    left: 0px;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: none;
+}
+
+#chat-button {
+    bottom: 76px !important;
+    right: 10px !important;
+}
+
+#ps__widget_container iframe {
+    bottom: 90px !important;
+}

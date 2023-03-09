@@ -1,0 +1,51 @@
+#secondCta {
+    text-align : center;
+    padding: 40px 10px 0px 10px;
+  }
+  
+  #secondCta .cursive {
+    color : rgb(246, 131, 131);
+    font-family : Northwell;
+    font-size : 48px;
+    line-height : 48px;
+  }
+  
+  #secondCta .bold {
+    font-family : Gotham, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size : 18px;
+    line-height : 18px;
+    font-weight : 500;
+    text-transform : uppercase;
+  }
+  
+  #secondCta a {
+    box-sizing : border-box;
+    margin : 16px 0px;
+    appearance : none;
+    display : inline-block;
+    text-decoration-line : none;
+    text-decoration-thickness : initial;
+    text-decoration-style : initial;
+    text-decoration-color : initial;
+    font-family : Gotham, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight : 500;
+    font-size : 15px;
+    text-transform : uppercase;
+    letter-spacing : -0.01em;
+    padding : 0px 20px;
+    border-radius : 6px;
+    height : 48px;
+    line-height : 46px;
+    text-align : center;
+    background-color: black;
+    color: white;
+    min-width: 270px;
+  }
+  
+  #secondCta i {
+    color: rgb(246, 131, 131);
+  }
+
+  [data-comp="products-slider"] [data-comp="Section"] {
+    padding-top: 32px !important;
+  }

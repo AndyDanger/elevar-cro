@@ -1,0 +1,41 @@
+.wave {
+    width: 100%;
+    padding: 20px 0px;
+    text-align: center;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    background-size: contain;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: wave;
+}
+
+.center {
+    width: 50%;
+    margin: 0px auto;
+}
+
+.overlay {
+    position: absolute;
+    height: 200px;
+    width: 50%;
+}
+
+img {
+    height: 200px;
+    width: 100%;
+}
+
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 100px;
+    }
+}

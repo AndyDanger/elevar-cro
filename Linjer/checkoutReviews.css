@@ -1,0 +1,34 @@
+.reviewWrapper {
+  padding : 15px 20px;
+  background : white;
+}
+
+.reviewTopHeader {
+  text-align : center;
+  font-family : "Abobe Carlson Pro";
+  font-size : 18px;
+  margin-top : 40px;
+  padding : 20px 0px;
+}
+
+.reviewHeader, .reviewHeaderText, .reviewHeaderStars {
+  font-weight : bold;
+  display : inline-block;
+  color : black;
+  font-size : 15px;
+}
+
+.reviewContent, .reviewName {
+  margin-top : 15px;
+}
+
+#mobileReviewDiv {
+  background : rgb(250, 250, 250);
+  margin : 0px -20px;
+  padding : 0px 20px 20px 20px;
+}
+@media only screen and (min-width: 999px) {
+  #mobileReviewDiv {
+    display : none;
+  }
+}

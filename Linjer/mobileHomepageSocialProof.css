@@ -1,0 +1,69 @@
+.section-review-cards .wrapper .grid {
+    display: none !important;
+}
+
+.pressImagesDiv {
+    opacity: 0.4;
+    margin-bottom: -20px;
+}
+
+.line1,
+.line2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.pressImagesDiv img {
+    padding: 0px 10px;
+    height: auto;
+}
+
+.line1 img {
+    width: 33%;
+}
+
+.line2 img {
+    width: 50%;
+}
+
+.line2 img:last-child {
+    padding: 0px 20px !important;
+}
+
+.instagramCarouselDiv {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.instagramDivHeader a {
+    float: right;
+    margin-right: 10px;
+    color: black;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.carouselImages a {
+    margin: 0px 7.5px;
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.carouselImages a:last-child {
+    padding-right: 15px;
+}
+
+.instagramCarouselDiv img {
+    width: 174px;
+    object-fit: cover;
+    height: 174px;
+}
+
+.instagramHandles {
+    font-size: 13px;
+    color: grey;
+}

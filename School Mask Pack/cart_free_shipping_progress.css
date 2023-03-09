@@ -1,0 +1,56 @@
+.plus-free-shipping {
+    font-weight: bold;
+    color: rgb(246, 80, 31);
+    text-align: center;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.plus-free-shipping--progress-bar {
+    height: 6px;
+    width: 0px;
+    max-width: 100%;
+    border-radius: 5px;
+    background: #288742;
+}
+
+.plus-free-shipping__eligible {
+    color: #288742;
+}
+
+.plus-free-shipping--progress-bar-top {
+    height: 6px;
+    background: rgb(173, 173, 173);
+    position: relative;
+    top: 6px;
+    opacity: 0.6;
+    border-radius: 5px;
+}
+
+.plus-free-shipping--message {
+    background: rgb(255, 255, 255);
+    padding: 5px 0px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+#freeShippingProgress {
+    width: 100%;
+    margin: 0px auto;
+    display: block;
+    text-align: center;
+}
+
+#freeShippingTruck::before {
+    font-size: 48px;
+    padding-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    #freeShippingProgress {
+        display: inline-flex;
+    }
+    .plus-free-shipping--message {
+        text-align: left;
+    }
+}

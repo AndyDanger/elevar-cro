@@ -1,0 +1,31 @@
+@media only screen and (max-width: 1023px) {
+    #newDiv {
+        display: none;
+    }
+}
+
+#newDiv {
+    width: 400px;
+    height: 400px;
+}
+
+.pdp__product-visuals {
+    display: none !important;
+}
+
+#newDiv video {
+    height: 400px !important;
+}
+
+.slick-arrow::before {
+    color: rgb(61, 61, 61) !important;
+    opacity: 0.75 !important;
+}
+
+.pdp__cart-container {
+    margin-bottom: 0px !important;
+}
+
+.pdp__product-cart-section {
+    height: auto !important;
+}

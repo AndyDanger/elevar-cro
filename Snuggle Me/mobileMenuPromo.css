@@ -1,0 +1,65 @@
+.mobileMenuInsert {
+    text-align: center;
+    padding: 10px 20px 40px 20px;
+    display: block;
+}
+
+.mobileMenuInsert .rating-stars__item {
+    width: 18px;
+}
+
+.sliderule__panel .mobileMenuInsert .grid__body {
+    padding: 0px 20px;
+}
+
+.mobileMenuInsert .grid__title {
+    padding-bottom: 5px;
+}
+
+.mobileMenuInsert .grid__richtext p {
+    font-size: 15.5px;
+    white-space: normal;
+    margin-top: 5px !important;
+}
+
+.mobileMenuInsert a.btn {
+    margin: 0px auto;
+    width: 60%;
+    display: block;
+}
+
+.drawer__inner {
+    overscroll-behavior: auto !important;
+}
+
+.drawer__content, .drawer__inner, .drawer__menu {
+    white-space: nowrap;
+    display: block !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.drawer__content {
+    overflow-y: scroll;
+    padding-bottom: 40px;
+}
+
+#header-menu, #header-menu * {
+    -webkit-overflow-scrolling: touch;
+}
+
+html, body {
+	position:relative;
+}
+
+#header-menu {
+    position: fixed !important;
+    z-index: 99999;
+    top: 0px;
+    height: 100%;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.drawer__content {
+    position: relative !important;
+}

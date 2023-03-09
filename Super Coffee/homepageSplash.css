@@ -1,0 +1,15 @@
+.subscription-builder {
+    padding-top: 0px !important;
+}
+
+.subscription-builder .flow-progress,
+.subscription-builder .product-selection,
+.subscription-builder .frequency-selection {
+    display: none !important;
+}
+
+.subscription-builder .cat-selection {
+    display: block !important;
+    visibility: initial !important;
+    opacity: 1 !important;
+}

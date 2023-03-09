@@ -1,0 +1,38 @@
+#SWbannerWrapper {
+    position: relative !important;
+    text-align: center !important;
+}
+
+#SWbannerWrapper .SWbannerInner {
+    display: inline-flex !important;
+    height: auto !important;
+    padding: 10px !important;
+}
+
+.SWbannerInner div {
+    font-size: 14px !important;
+}
+
+#SWbannerWrapper a {
+    display: inline !important;
+    color: white !important;
+}
+
+#close-SWbanner {
+    display: none !important;
+}
+
+#SWbannerWrapper i {
+    animation: glow 1s infinite alternate;
+    font-size: 18px;
+}
+
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px white;
+    }
+    to {
+      text-shadow: 0 0 0px white;
+    }
+  }
