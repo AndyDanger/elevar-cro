@@ -1,9 +1,10 @@
-let plunglePlpInterval = setInterval(() => {
+let plungePlpInterval = setInterval(() => {
+    console.log(`replacing images`)
     let mainBanner = document.querySelector(`.hero__image.hide-mobile.lazyloaded`)
     let firstCard = document.querySelector(`.content-card:nth-of-type(1n) img`)
     let secondCard = document.querySelector(`.content-card:nth-of-type(2n) img`)
     let thirdCard = document.querySelector(`.content-card:nth-of-type(3n) img`)
-    let mobileImage = document.querySelector(`.video-image--mobile.lazyload`)
+    let mobileImage = document.querySelector(`.video-image--mobile`)
     let count = 0
     if (mainBanner) {
         mainBanner.src = `https://i.imgur.com/rMFVd0N.jpg`
@@ -33,7 +34,7 @@ let plunglePlpInterval = setInterval(() => {
 
     if (count >= 5) {
         console.log(`images replaced`)
-        clearInterval(plunglePlpInterval)
+        clearInterval(plungePlpInterval)
     }
 
 }, 250)

@@ -1,0 +1,117 @@
+.progress-bar {
+    padding: 0 0.625rem 0.625rem;
+    padding: 0 var(--spacer-s) var(--spacer-s);
+    --progress-bar-color: var(--brand-dark-gray);
+}
+
+.progress-bar>*+* {
+    margin-top: 0.625rem;
+    margin-top: var(--spacer-s);
+}
+
+.progress-bar .progress-bar__heading {
+    text-align: center;
+    font-size: 0.75rem;
+    font-size: var(--font-size-small);
+    line-height: 1.125rem;
+    line-height: var(--line-height-small);
+}
+
+.progress-bar .progress-bar__outer {
+    background-color: #dddddd;
+    background-color: var(--brand-light-gray);
+    width: 100%;
+    height: 0.625rem;
+    border-radius: 6.25rem;
+    overflow: hidden;
+}
+
+.progress-bar .progress-bar__inner {
+    background-color: var(--progress-bar-color);
+    width: var(--percentage);
+    height: 100%;
+}
+
+.progress-bar.red .progress-bar__inner {
+    --progress-bar-color: var(--brand-red);
+}
+
+.progress-bar.yellow .progress-bar__inner {
+    --progress-bar-color: var(--brand-yellow);
+}
+
+.progress-bar.green .progress-bar__inner {
+    --progress-bar-color: var(--brand-green);
+}
+
+.progress-bar .progress-bar__outer {
+    border: 0.125rem solid #282828;
+    border: 0.125rem solid var(--brand-dark-gray);
+    background: linear-gradient(to right, #aad3a3 66%, #ffd563 34%);
+    height: 1.75rem;
+    position: relative;
+}
+
+.progress-bar .progress-bar__outer.progress-bar__AU {
+    background: linear-gradient(to right, #aad3a3 87.7%, #ffd563 12.3%);
+}
+
+.progress-bar .progress-bar__outer.progress-bar__CA {
+    background: linear-gradient(to right, #aad3a3 87.3%, #ffd563 12.7%);
+}
+
+.progress-bar .progress-bar__outer p {
+    position: absolute;
+    z-index: 1;
+}
+
+.progress-bar .progress-bar__inner {
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    direction: rtl;
+    z-index: 0;
+    border-radius: 0 6.25rem 6.25rem 0;
+}
+
+.tiered-progress-bar .progress-bar__outer {
+    overflow: visible;
+    margin: 2.5rem 0;
+}
+
+.tiered-progress-bar .progress-bar__outer .tiered-bubble {
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    margin-top: -1.25rem;
+    width: 3.75rem;
+    padding: 0.375rem;
+    border-radius: 50%;
+    border: 0.125rem solid #119313;
+}
+
+.tiered-progress-bar .progress-bar__outer .tiered-bubble img {
+    border-radius: 20%;
+}
+
+.tiered-progress-bar .progress-bar__outer .tier-bubble_price {
+    margin-top: 2.8125rem;
+    margin-left: 1rem;
+    color: #119313;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.tiered-progress-bar .progress-bar__outer .tiered-bubble_container {
+    max-width: 80%;
+    position: relative;
+}
+
+.tiered-progress-bar .progress-bar__outer .tiered-bubble_filled {
+    border: 0.25rem solid #119313;
+}
+
+.tiered-progress-bar .progress-bar__outer .progress-bar__inner {
+    background: #fff;
+}

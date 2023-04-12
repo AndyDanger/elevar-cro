@@ -1,0 +1,31 @@
+product-images-slider {
+    position: relative;
+}
+
+.rotatingStickerDiv {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    overflow: hidden;
+}
+
+.rotatingStickerDiv img {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 40px);
+    width: 80px;
+}
+
+.rotatingStickerDiv svg textPath {
+    font-size: 24px;
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    fill: #000;
+}
+
+#rotating-text {
+    animation: rotation 30s infinite linear;
+    width: 200px;
+    align-items: center;
+}

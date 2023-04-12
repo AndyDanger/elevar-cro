@@ -18,8 +18,8 @@ let mobileNavInterval = setInterval(() => {
 
     let promoLink = document.createElement(`a`)
     promoLink.className = `promoLink`
-    promoLink.href = `https://ogee.com/products/sculpted-complexion-stick`
-    promoLink.innerHTML = `<img src="https://i.imgur.com/LgE9cmJ.jpg" /><button class="add_to_cart relative bg-black border border-black cursor-pointer duration-300 font-helvetica md:w-1/2 py-3 text-center text-white text-xs tracking-widest transition-colors uppercase w-full">SHOP NOW</button>`
+    promoLink.href = `https://ogee.com/pages/shop-all`
+    promoLink.innerHTML = `<img src="https://i.imgur.com/iLcrHXd.jpg" />`
     document.querySelector(`#menu-drawer`).append(promoLink)
 
 }, 250)

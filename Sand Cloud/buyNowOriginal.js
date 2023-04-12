@@ -29,7 +29,7 @@ window.doThing = function () {
             window.location.href = `${checkoutUrl}?buy_now_redirect=shop_pay`
         }
     }, 100)
-        var tracker = ga.getAll().find(tracker => tracker.model.data.ea[':trackingId'] == 'UA-59546458-1') // insert their UA number here
+    var tracker = ga.getAll().find(tracker => tracker.model.data.ea[':trackingId'] == 'UA-59546458-1') // insert their UA number here
     if (tracker) {
         tracker.send('event', 'pdp', 'buy now button', window.location.href) // replace event category and event action
     }

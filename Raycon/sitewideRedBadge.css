@@ -1,0 +1,9 @@
+.redProductBadge {
+    position: absolute;
+    background: #b42d2c;
+    color: white;
+    padding: 1px 4px;
+    font-size: 15px;
+    top: 0px;
+    z-index: 1;
+}

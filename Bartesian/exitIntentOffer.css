@@ -31,6 +31,33 @@
     box-shadow: 0 0 0 0.3rem rgb(209 68 54);
 }
 
+@media only screen and (max-width: 338px) {
+    .newBanner img.medium-hide {
+        height: 370px !important;
+    }
+}
+
+@media only screen and (min-width: 339px) and (max-width: 420px) {
+    .newBanner img.medium-hide {
+        height: 300px !important;
+    }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 560px) {
+    .newBanner img.medium-hide {
+        height: 280px !important;
+    }
+}
+
+
+@media only screen and (max-width: 750px) {
+    .newBanner img.medium-hide {
+        object-fit: cover;
+        height: 240px;
+        object-position: top;
+    }
+}
+
 @media only screen and (min-width: 750px) {
     .bannerWrapper {
         max-width: 50%;
@@ -55,15 +82,33 @@
     }
 
     .bannerHeader {
-        font-size: 48px;
+        font-size: 52px;
+        line-height: 60px;
     }
 
     .bannerText {
         margin-top: 10px;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .bannerButton {
         padding: 15px 25px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    .bannerHeader {
+        font-size: 64px;
+        line-height: 68px;
+        margin-bottom: 25px;
+    }
+
+    .bannerText {
+        font-size: 22px;
+    }
+
+    .bannerButton {
+        font-size: 22px;
     }
 }

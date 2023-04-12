@@ -1,4 +1,5 @@
-.prod-grid-images {
+.prod-grid-images, 
+.prod-img-first {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -19,6 +20,20 @@
 }
 
 #productFeature .splide__slide img {
+    width: calc(100% + 50px);
+    height: calc(100% + 50px);
+    object-position: -25px -25px;
+}
+
+
+#CollectionSection .grid-product__image-link {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: -50px;
+}
+
+#CollectionSection .splide__slide img {
     width: calc(100% + 50px);
     height: calc(100% + 50px);
     object-position: -25px -25px;

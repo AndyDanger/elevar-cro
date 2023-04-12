@@ -1,0 +1,71 @@
+.makeRelative {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: white;
+}
+
+.machineUpsellLink {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    background-color: white;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    display: contents;
+}
+
+#machineupsell-img img {
+    width: 100%;
+    background-color: white;
+}
+
+#machineupsell-img>div {
+    font-size: 22px;
+    background-color: white;
+    font-style: italic;
+}
+
+#machineupsell-img video {
+    height: 99%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+}
+
+#machineupsell-img {
+    position: relative;
+    background: white;
+}
+
+.upsellbtn-container {
+    bottom: 0px;
+    width: 100%;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.upsellbtn-container div {
+    width: auto;
+    padding: 13.5px 20px;
+    background-color: #1d1d1f;
+    text-transform: uppercase;
+    color: white;
+    display: inline-block;
+}
+
+.upsellbtn-container div:hover {
+    box-shadow: 0 0 0 0.3rem #000;
+}
+
+@media screen and (max-width: 768px) {
+    li:has(#machineupsell-img) {
+        grid-column-start: span 2;
+        grid-column-end: auto;
+        /* min-height: 630px; */
+    }
+}

@@ -1,0 +1,5 @@
+.breadcrumb:before,
+.breadcrumb>li>span:not(.breadcrumb__text),
+.breadcrumb__link > span {
+    display: none !important;
+}

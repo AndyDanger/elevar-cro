@@ -1,0 +1,46 @@
+#newAnnouncementBar {
+    display: flex;
+    background: rgb(56, 49, 255);
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    padding: 10px 0px;
+}
+
+.newAnnouncementBarTitle {
+    font-size: 18px;
+}
+
+.newAnnouncementBarButton {
+    padding: 5px 15px;
+    background: black;
+    border-radius: 25px;
+    color: white;
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.newAnnouncementBarIconsWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.newAnnouncementBarIconsWrapper img {
+    height: 32px;
+    margin-right: 10px;
+    filter: brightness(0%);
+}
+
+@media only screen and (max-width: 916px) {
+    .newAnnouncementBarIconsWrapper {
+        display: none;
+    }
+}
+
+#fitness-promo-ab {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 15px;
+}

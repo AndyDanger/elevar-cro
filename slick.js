@@ -25,3 +25,4 @@ let lordIconTag = document.createElement(`lord-icon`)
 lordIconTag.src = `https://cdn.lordicon.com/tgriojic.json`
 lordIconTag.trigger = `hover`
 document.querySelector(`header`).append(lordIconTag)
+

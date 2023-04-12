@@ -1,11 +1,10 @@
+.product-feature,
 .artwork-desc,
 .product-desc {
+    max-width: 200px;
     text-overflow: initial !important;
     white-space: break-spaces !important;
     overflow: auto !important;
-}
-
-.artwork-desc {
-    font-style: italic !important;
-    font-weight: normal !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }

@@ -1,5 +1,6 @@
 function exitIntentFunction() {
-    if (window.location.pathname.includes(`winter-bundle`)
+    if ((window.location.pathname.includes(`winter-bundle`)
+         || window.location.pathname.includes(`/products/the-bartesian`))
         && !window.location.pathname.includes(`winter-bundle-2`)
         && !window.location.href.includes(`prevent_redirect=true`)) {
         if (window.location.href.includes(`en-ca`)) {
