@@ -1,0 +1,71 @@
+.plpCarousel .carousel-cell {
+    width: 25%;
+    padding: 10px;
+}
+
+.plpCarouselHeader {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.plpCarouselWrapper {
+    position: relative;
+}
+
+.plpCarouselImage {
+    width: 100%;
+}
+
+.plpCarouselShopNow {
+    background: black;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-family: "Ferry Black", "Arial Black", sans-serif;
+    letter-spacing: 0.2em;
+}
+
+.plpCarouselDescription {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 599px) {
+    .plpCarousel .carousel-cell {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .plpCarousel .carousel-cell {
+        width: 55%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .plpCarousel .carousel-cell {
+        width: 45%;
+    }
+
+    .plpCarouselHeader {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .plpCarousel .carousel-cell {
+        width: 35%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .plpCarousel .carousel-cell {
+        width: 25%;
+    }
+}

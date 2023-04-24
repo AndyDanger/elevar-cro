@@ -1,0 +1,131 @@
+#shopify-section-info-bar .info-bar__message,
+#shopify-section-info-bar .rte,
+#shopify-section-info-bar .slick-list {
+  width: 100%;
+  color: white;
+}
+
+#shopify-section-info-bar .slick-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+}
+
+
+#shopify-section-info-bar .slick-list {
+  max-width: 400px;
+  margin-bottom: 0px !important;
+}
+
+#shopify-section-info-bar .slick-track {
+  display: flex;
+}
+
+#shopify-section-info-bar .slick-track .slick-slide {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+#shopify-section-info-bar .slick-prev,
+#shopify-section-info-bar .slick-next {
+  font-size: 0px;
+  line-height: 0;
+  position: relative;
+  top: 50%;
+  display: block;
+  width: 24px;
+  height: 20px;
+  padding: 0px;
+  transform: none;
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background-image: initial;
+  background-position: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: transparent;
+  z-index: 1;
+  top: 0px !important;
+  margin-top: 0px !important;
+}
+
+#shopify-section-info-bar .slick-prev:hover,
+#shopify-section-info-bar .slick-prev:focus,
+#shopify-section-info-bar .slick-next:hover,
+#shopify-section-info-bar .slick-next:focus {
+  color: transparent;
+  outline: none;
+  background-image: initial;
+  background-position: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: transparent;
+}
+
+#shopify-section-info-bar .slick-prev:hover::before,
+#shopify-section-info-bar .slick-prev:focus::before,
+#shopify-section-info-bar .slick-next:hover::before,
+#shopify-section-info-bar .slick-next:focus::before {
+  opacity: 1;
+}
+
+#shopify-section-info-bar .slick-prev.slick-disabled::before,
+#shopify-section-info-bar .slick-next.slick-disabled::before {
+  opacity: 0.25;
+}
+
+#shopify-section-info-bar .slick-prev::before,
+#shopify-section-info-bar .slick-next::before {
+  font-family: slick;
+  font-size: 20px;
+  line-height: 1;
+  opacity: 1;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+#shopify-section-info-bar .slick-prev {
+  left: 0px;
+}
+
+#shopify-section-info-bar [dir="rtl"] .slick-prev {
+  right: 0px;
+  left: auto;
+}
+
+#shopify-section-info-bar .slick-prev::before {
+  content: "❮";
+}
+
+#shopify-section-info-bar [dir="rtl"] .slick-prev::before {
+  content: "❯";
+}
+
+#shopify-section-info-bar .slick-next {
+  right: 0px;
+}
+
+#shopify-section-info-bar [dir="rtl"] .slick-next {
+  right: auto;
+  left: 0px;
+}
+
+#shopify-section-info-bar .slick-next::before {
+  content: "❯";
+}
+
+#shopify-section-info-bar [dir="rtl"] .slick-next::before {
+  content: "❮";
+}

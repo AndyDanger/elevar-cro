@@ -1,0 +1,21 @@
+.stickerWrapper {
+    display: flex !important;
+    width: 98% !important;
+    position: absolute !important;
+    align-items: flex-start !important;
+    flex-direction: row-reverse !important;
+    top: 10px !important;
+    left: 2% !important;
+}
+
+.stickerWrapper img {
+    width: 33.3% !important;
+    object-fit: contain !important;
+    height: 33.3% !important;
+}
+
+.crueltyFreeImage,
+.organicImage {
+    padding: 5px;
+    filter: invert(54%) sepia(0%) saturate(0%) hue-rotate(171deg) brightness(93%) contrast(95%);
+}

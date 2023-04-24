@@ -1,0 +1,90 @@
+.newFitnessUpsellDiv {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newFitnessUpsellDiv > img {
+    cursor: pointer;
+}
+
+.newFitnessUpsellDiv .swatchesList {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.swatchesList li {
+    padding: 3px;
+    border: 1px solid #eaeaea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.swatchesList li.active {
+    border: 1px solid black;
+}
+
+.newFitnessUpsellDiv .swatch__image {
+    border-radius: 50%;
+}
+
+.newFitnessUpsellDiv .swatchesTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.swatchesPrices {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.swatchesOriginalPrice {
+    font-size: 18px;
+    text-decoration: line-through;
+}
+
+.swatchesNewPrice {
+    margin-left: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.swatchesBuyNowButton {
+    background-color: #3831ff;
+    color: white;
+    font-size: 18px;
+    padding: 5px 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 200px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.swatchesBuyNowButton:hover {
+    background-color: #0800e4;
+}
+
+.swatchesLearnMoreButton {
+    background-color: white;
+    color: #3831ff;
+    border: 2px solid #3831ff;
+    font-size: 18px;
+    padding: 5px 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 200px;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.swatchesLearnMoreButton:hover {
+    background-color: #3831ff;
+    color: white;
+}
