@@ -1,0 +1,29 @@
+.block>img {
+    display: none !important;
+}
+
+.block img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.slick-dots {
+    z-index: 1 !important;
+}
+
+.slick-dots .slick-active button {
+    background-color: rgba(95, 95, 95, 0.8);
+}
+
+.slick-dots button {
+    background-color: rgba(95, 95, 95, 0.4);
+}
+
+.card .product-link,
+ul.slick-dots>li:only-child {
+    display: none !important;
+}
+
+ul.slick-dots>li:only-child {
+    opacity: 0 !important;
+}
