@@ -1,4 +1,6 @@
-.block>img {
+.block>img,
+.block > a > img
+ {
     display: none !important;
 }
 

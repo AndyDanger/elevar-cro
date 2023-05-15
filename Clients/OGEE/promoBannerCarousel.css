@@ -7,7 +7,7 @@
   
   .announcement-bar__message {
     width : 100%;
-    max-width : 500px;
+    max-width : 300px;
     overflow-x : hidden;
     overflow-y : hidden;
     padding-left: 10px;
@@ -22,7 +22,7 @@
     margin-top : 0px !important;
   }
   @media only screen and (max-width: 340px) {
-    p.announcement-bar__message>div>div>div:nth-of-type(2)>div>span {
+    p.announcement-bar__message span {
       font-size : 14px;
     }
   }
@@ -31,12 +31,10 @@
     display: flex;
   }
   .slick-track .slick-slide {
-    display: flex;
     height: auto;
-    align-items: center;
-    justify-content: center;
+    color: white;
+    text-decoration: none;
   }
-
   
   .slick-prev, .slick-next {
     font-size : 0px;

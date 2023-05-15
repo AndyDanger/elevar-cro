@@ -1,0 +1,25 @@
+div.text-4xl>p:nth-of-type(1)>strong {
+    text-transform: uppercase !important;
+    font-weight: 1000 !important;
+}
+@media screen and (min-width: 768px) {
+    div.text-7xl>p>strong {
+        font-size: 36px !important;
+    }
+
+    div.text-4xl>p:nth-of-type(1)>strong {
+        font-size: 60px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    div.text-4xl>p:nth-of-type(1)>strong {
+        font-size: 36px;
+    }
+
+    div.text-7xl>p>strong {
+        font-size: 28px;
+    }
+}

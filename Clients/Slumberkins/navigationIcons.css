@@ -1,0 +1,17 @@
+#Linklist-1 .mobile-nav__item {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+#Linklist-1 .navIcon {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    filter: brightness(0) saturate(100%) invert(17%) sepia(35%) saturate(5107%) hue-rotate(187deg) brightness(90%) contrast(98%);
+}
+
+#Linklist-1 .mobile-nav__sublist .mobile-nav__link {
+    padding-left: 15px;
+}

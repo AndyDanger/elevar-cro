@@ -1,0 +1,14 @@
+[d-handle="cocktail-maker"] a.header__menu-item,
+[d-handle="bartesian-duet-cocktail-maker"] a.header__menu-item,
+[d-handle="bartesian-professional-cocktail-maker"] a.header__menu-item,
+[id="link-Cocktail Makers"] a {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.navImage {
+    width: 100%;
+}

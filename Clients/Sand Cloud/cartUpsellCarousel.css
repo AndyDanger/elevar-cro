@@ -1,0 +1,24 @@
+[data-comp="UpSellsBlock"] {
+    padding: 15px 5px !important; 
+}
+
+[data-comp="UpSellProduct"] {
+    padding-left: 5px !important;
+    padding-right: 5px !important
+}
+
+[data-comp="UpSellProduct"] > div {
+    padding-right: 5px !important
+}
+
+@media only screen and (min-width: 341px) {
+    [data-comp="Footer"] {
+        margin-top: -45px !important;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    [data-comp="Footer"] {
+        margin-top: -60px !important;
+    }
+}

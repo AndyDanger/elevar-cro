@@ -20,6 +20,10 @@ let slickInterval = setInterval(() => {
     let thing = document.querySelector(`thing`)
     if (!thing || typeof jQuery == `undefined` || !$().slick) return
     clearInterval(slickInterval)
+    $(thing).slick({
+        arrows:true,
+        dots: true,
+    });
 }, 250)
 
 

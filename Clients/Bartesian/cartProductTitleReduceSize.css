@@ -1,0 +1,21 @@
+.sidecart__items .sidecart__info {
+    padding-left: 1.5rem !important;;
+}
+
+.sidecart__items .item-title {
+    font-size: 1.5rem !important;;
+}
+
+.item-discounts {
+    margin-left: 80px !important;;
+}
+
+@media screen and (max-width: 750px) {
+    .sidecart__items .item-title {
+        font-size: 1.35rem !important;
+    }
+
+    .item-discounts {
+        margin-left: 5rem !important;
+    }
+}

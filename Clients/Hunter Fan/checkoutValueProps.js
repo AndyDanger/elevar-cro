@@ -70,13 +70,29 @@ function testimonials(orderSummary) {
     }
     let desktopTestimonialsDiv = document.createElement(`div`)
     desktopTestimonialsDiv.id = `desktopTestimonialsDiv`
-    desktopTestimonialsDiv.innerHTML =
-        `
-        <div><div class="stars">★★★★★</div>“Amazing product and super quick shipping!!” -Jessica G.</div>
-        <div><div class="stars">★★★★★</div>“Love my fan!! Keep my entire house cool!” -Nicole A.</div>
-        <div><div class="stars">★★★★★</div>“So happy with my purchase, will 100% buy more” -JJ</div>
-        <div><div class="stars">★★★★★</div>“I am obsessed with Hunter Fan, not only for their fans but also for their amazing lights.” -Ashley</div>
+    let fansHtml = `
+        <div><div class="stars">★★★★★</div>“Great Fan! Easy to install and easy to use. Just as advertised.” -Tom F.</div>
+        <div><div class="stars">★★★★★</div>“Not only esthetically pleasing, but also highly functional. Would highly recommend.” -David.</div>
+        <div><div class="stars">★★★★★</div>“We love our new fans. We actually bought 6; one for each room!” -Virginia</div>
+        <div><div class="stars">★★★★★</div>“Love it! So quiet and looks great. Got one for my living room and bedroom.” -Suzanne E.</div>
     `
+    let lightsHtml = `
+        <div><div class="stars">★★★★★</div>“I am so pleased with this light fixture. It truly does add a touch of class and it stands out among all the rest.” -Ohio.</div>
+        <div><div class="stars">★★★★★</div>“My husband had no problem installing this light fixture. It will be a beautiful fixture for years to come.” -Trish.</div>
+        <div><div class="stars">★★★★★</div>“Perfect light. Very easy setup and I love everything about it. When it comes to this product there was absolutely no cons.” -Erica</div>
+        <div><div class="stars">★★★★★</div>“Gives off great light without being overpowering. It was super easy to install. I'm so happy!” -Paul.</div>
+        `
+    if (orderSummary.innerText.includes(`fan`)){
+        desktopTestimonialsDiv.innerHTML += fansHtml
+    }
+
+    if (orderSummary.innerText.includes(`light`)){
+        desktopTestimonialsDiv.innerHTML += lightsHtml
+    }
+    
+    if (desktopTestimonialsDiv.innerHTML.length == 0) {
+        desktopTestimonialsDiv.innerHTML = fansHtml
+    }
     orderSummary.append(desktopTestimonialsDiv)
     let mobileTestimonialsDiv = desktopTestimonialsDiv.cloneNode(true)
     mobileTestimonialsDiv.id = `mobileTestimonialsDiv`

@@ -16,9 +16,11 @@ let plpSecondaryImagesInterval = setInterval(() => {
     let unreplacedBlocks = document.querySelectorAll(`.angledImageAdded.sideImageAdded:not(.slick-slider)`)
     if ((!productWraps.length && !unreplacedBlocks.length) || typeof jQuery == `undefined`) return
     productWraps.forEach(function (productWrap, index) {
+        if (!productWrap.querySelector(`.product-link`)) return
+        let productHref = productWrap.querySelector(`.product-link`).href
         if (!productWrap.querySelector(`a .product-link`)) {
             let details = productWrap.querySelector(`.details`)
-            $(details).wrap(`<a href="${productWrap.querySelector(`.product-link`).href}"></a>`)
+            $(details).wrap(`<a href="${productHref}"></a>`)
         }
         let previewImage = productWrap.querySelector(`.preview-image`)
         let previewImageSource = previewImage.src
@@ -29,14 +31,15 @@ let plpSecondaryImagesInterval = setInterval(() => {
         let angledShotSource = `${previewImageSource.replace(`.png`, `__render8.png`)}`
         let sideShotSource = `https://cdn.casetify.com/img/case/side_color_preview_${variantId}.jpg`
         let block = productWrap.querySelector(`.block`)
-        block.innerHTML = `<div><img src="${previewImageSource}" /></div>`
+        block.innerHTML = `<div><a href="${productHref}"><img src="${previewImageSource}" /></a></div>`
 
         let angledImage = $("<img />").attr('src', angledShotSource)
             .on('load', function () {
                 if (this.className.includes(`angledImageBroken`) || !this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
                     // alert('broken image!');
                 } else {
-                    $(block).append(angledImage)
+                    let thing = $(angledImage).appendTo(block)
+                    thing.wrap(`<a href="${productHref}"></a>`)
                 }
                 block.classList.add(`angledImageAdded`)
             })
@@ -50,7 +53,8 @@ let plpSecondaryImagesInterval = setInterval(() => {
                 if (this.className.includes(`sideImageBroken`) || !this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
                     // alert('broken image!');
                 } else {
-                    $(block).append(sideImage)
+                    let thing = $(sideImage).appendTo(block)
+                    thing.wrap(`<a href="${productHref}"></a>`)
                 }
                 block.classList.add(`sideImageAdded`)
 

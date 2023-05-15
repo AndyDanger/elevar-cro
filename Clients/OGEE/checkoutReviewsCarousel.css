@@ -1,0 +1,17 @@
+#carousel-top-panel {
+    display: none !important;
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .main__content .yotpo-reviews-carousel {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 999px) {
+
+    .order-summary__sections .yotpo-reviews-carousel {
+        display: none;
+    }
+}

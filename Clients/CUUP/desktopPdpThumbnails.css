@@ -1,0 +1,23 @@
+#pdp {
+    padding: 0px 10%;
+}
+
+.carousel-nav,
+.carousel-main {
+    padding: 10px;
+    display: inline-grid !important;
+    grid-template-columns: none !important;
+}
+
+
+.carousel-nav {
+    width: 15%;
+}
+
+.carousel-nav img {
+    margin: 0px 5px 10px 5px;
+}
+
+.carousel-main {
+    width: 85%;
+}

@@ -1,5 +1,4 @@
 @media only screen and (min-width: 769px) {
-
     div:has(> [data-comp="ProductImagesThumbs"]) {
         flex-direction: column-reverse;
         align-items: center;
@@ -8,9 +7,14 @@
     [data-comp="ProductImagesThumbs"] {
         justify-content: flex-start;
         flex-wrap: wrap;
+        width: 100%;
         flex-direction: row !important;
         display: flex !important;
         margin: 10px 0px 0px 0px !important;
+    }
+
+    [data-comp="ProductImagesThumbs"] .flickity-viewport {
+        width: 100%;
     }
 
     [data-comp="ProductImageThumb"] {
