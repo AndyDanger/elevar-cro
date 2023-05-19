@@ -4,14 +4,23 @@ let control = () => {
 
 let variant1 = () => {
     console.log(`variant1`)
-    let ambassadorSection = document.querySelector(`[data-comp="half-media"]:not(.swapped)`)
-    if (!ambassadorSection || !ambassadorSection.querySelector(`source`)) return
 
+    let upsellsInterval = setInterval(function () {
+        if (!document.body) return
+        document.body.classList.add(`upsellsV1`)
+
+    }, 250)
+    
 }
 
 let variant2 = () => {
     console.log(`variant2`)
 
+    let upsellsInterval = setInterval(function () {
+        if (!document.body) return
+        document.body.classList.add(`upsellsV2`)
+
+    }, 250)
 }
 
 let variant3 = () => {

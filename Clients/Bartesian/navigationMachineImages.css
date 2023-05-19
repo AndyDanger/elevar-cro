@@ -1,6 +1,9 @@
 [d-handle="cocktail-maker"] a.header__menu-item,
 [d-handle="bartesian-duet-cocktail-maker"] a.header__menu-item,
 [d-handle="bartesian-professional-cocktail-maker"] a.header__menu-item,
+.desktop__main-menu a.header__menu-item[href*="/products/cocktail-maker"],
+.desktop__main-menu a.header__menu-item[href*="/products/bartesian-duet-cocktail-maker"],
+.desktop__main-menu a.header__menu-item[href*="/products/bartesian-professional-cocktail-maker"],
 [id="link-Cocktail Makers"] a {
     display: flex;
     flex-direction: column-reverse;
@@ -11,4 +14,12 @@
 
 .navImage {
     width: 100%;
+}
+
+[id="link-Cocktail Makers"] a {
+    padding: 0px 20px !important;
+}
+
+[id="link-Cocktail Makers"] a .navImage {
+    width: 60%
 }

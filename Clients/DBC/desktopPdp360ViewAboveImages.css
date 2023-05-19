@@ -1,0 +1,13 @@
+#wr360box {
+    margin-bottom: 0px !important;
+}
+
+.page .page-container {
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+.product_details_right .product-single__meta {
+    top: 0px;
+    position: sticky !important;
+}

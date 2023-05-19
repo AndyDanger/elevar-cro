@@ -20,10 +20,25 @@ let main = () => {
     let url = new URL(window.location.href)
     let variant = url.searchParams.get(`test_variant`)
     if (variant) {
-        sessionStorage.setItem(`test_variant`, variant)
+        setCookie(`test_variant`, variant, 7)
     }
-    let storageVariant = sessionStorage.getItem(`test_variant`) || 1 // default to variant 1
+    let storageVariant = getCookie(`test_variant`) || 1 // default to variant 1
     variants[storageVariant]() // call the variant's function
 }
 
+let setCookie = (cname, cvalue, exdays) => {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+let getCookie = (cname) => {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 main()
+

@@ -1,0 +1,41 @@
+#desktopCarouselBanner .slick-dots,
+#mobileCarouselBanner .slick-dots {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+#desktopCarouselBanner .slick-dots li button,
+#mobileCarouselBanner .slick-dots li button {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+#desktopCarouselBanner .slick-dots li button:before,
+#mobileCarouselBanner .slick-dots li button:before {
+    opacity: .4;
+    font-size: 32px !important;
+}
+
+#desktopCarouselBanner .slick-prev:before, .slick-next:before,
+#mobileCarouselBanner .slick-prev:before, .slick-next:before {
+    color: #606060 !important;
+    font-size: 28px !important;
+}
+
+#desktopCarouselBanner,
+#mobileCarouselBanner {
+    display: block !important;
+}
+
+@media only screen and (max-width: 750px) {
+    #desktopCarouselBanner {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 751px) {
+    #mobileCarouselBanner {
+        display: none !important;
+    }
+}

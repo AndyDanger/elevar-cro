@@ -9,9 +9,13 @@
     width: 40px;
     height: 40px;
     margin-left: 10px;
-    filter: brightness(0) saturate(100%) invert(17%) sepia(35%) saturate(5107%) hue-rotate(187deg) brightness(90%) contrast(98%);
+    filter: brightness(0%) saturate(100%) invert(17%) sepia(32%) saturate(5216%) hue-rotate(186deg) brightness(92%) contrast(98%);
 }
 
 #Linklist-1 .mobile-nav__sublist .mobile-nav__link {
     padding-left: 15px;
+}
+
+.hide-theme #Label-2 {
+    display: none !important;
 }

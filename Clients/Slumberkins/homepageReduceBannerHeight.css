@@ -1,0 +1,13 @@
+@media screen and (min-width: 1280px) {
+    .home-hero-section {
+        background-position: 0px 0px !important;
+        --hero-aspect-ratio--desktop: 19/7 !important;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .home-hero-section {
+        aspect-ratio: 1/1.5 !important;
+    }
+
+}

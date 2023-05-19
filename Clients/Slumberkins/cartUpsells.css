@@ -1,0 +1,24 @@
+.upsellsV1 .nudge-offer {
+    border-bottom: 1px solid #dddddd !important;
+    bottom: 10px !important;
+    border-radius: 0px !important;
+}
+
+.upsellsV1 #CartContainer .ajaxcart__product {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.upsellsV2 .nudge-offer img {
+    width: 120px !important;
+    max-width: 120px !important;
+    padding-right: 10px !important;
+}
+
+.upsellsV2 .nudge-offer .nudge-wrapper {
+    font-weight: normal !important;
+}
+
+.upsellsV2 .nudge-offer.multi {
+    padding: 15px 10px !important
+}

@@ -1,12 +1,20 @@
+window.currentUrl = ``
+window.clickedButton = false
 let desktopPdp360AboveImagesInterval = setInterval(() => {
-    let section = document.querySelector(`[id*=FeaturedImageZoom]`)
-    if (!section) return
-    clearInterval(desktopPdp360AboveImagesInterval)
-    section.classList.add(`shown`)
-    let imageSection = document.querySelector(`#wr360image_wr360_player`)
-    imageSection.classList.add(`showThis`)
-    let imageSection2 = document.querySelector(`#wr360holder`)
-    imageSection2.classList.add(`showThis`)
-    window.dispatchEvent(new Event('resize'));
+    let button = document.querySelector(`.button360 a`)
+    let viewer = document.querySelector(`#wr360image_wr360_player`)
+    if (!button || !viewer || !viewer.src) return
+    if (window.currentUrl != window.location.href) {
+        window.currentUrl = window.location.href
+        window.clickedButton = false
+        return
+    }
+    if (window.clickedButton) return
+    window.clickedButton = true
+    window.currentUrl = window.location.href
+    // window.currentVariant = viewer.src
+    // clearInterval(desktopPdp360AboveImagesInterval)
+    console.log(`clicking`)
+    button.click()
 
 }, 250)
