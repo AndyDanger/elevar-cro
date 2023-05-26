@@ -196,35 +196,31 @@ const buildTikTokPayload = (context: Context): TikTokPayload => {
     };
 };
 
-const ignoreUAEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
-    context: Context,
-    payload: UAPayload
-): string | undefined => {
+const consentNotGrantedReason = (context: Context): string | undefined => {
     if (
         context.config.consentRequired &&
         !context.message.attributes.consentGranted
     ) {
-        return "Consent not granted";
-    } else if (!payload.uid && !payload.cid) {
+        return `Consent not granted`
+    }
+};
+
+const ignoreUAEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
+    payload: UAPayload
+): string | undefined => {
+    if (!payload.uid && !payload.cid) {
         return "Missing user identifier";
     }
 };
 
 const ignoreTikTokEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
-    context: Context,
     payload: TikTokPayload
 ): string | undefined => {
-    if (
-        context.config.consentRequired &&
-        !context.message.attributes.consentGranted
-    ) {
-        return "Consent not granted";
-    } else if (!payload.ttid) {
+    if (!payload.ttid) {
         return "Missing Tiktok ID";
     } else if (!payload.event) {
         return "Missing Tiktok Event Name";
     }
-
 };
 
 const sendEvent = (context: Context, config: ConnectorConfig, payload: Payload) => {
@@ -266,7 +262,7 @@ const processEvents = (context: Context) => {
         }
 
         const payload = config.payloadBuilder(context);
-        const ignorePayloadReason = config.ignoreEventReason(context, payload);
+        const ignorePayloadReason = consentNotGrantedReason(context) || config.ignoreEventReason(payload);
         if (ignorePayloadReason) {
             console.log(`Ignoring ${config.name} Event:`, ignorePayloadReason);
             return;
@@ -282,11 +278,12 @@ const sampleContext: Context = {
         attributes: {
             _ga: "1234567.1234567",
             user_id: "user_123",
-            ttclid: "123"
+            ttclid: "123",
+            consentGranted: false
         },
     },
     config: {
-        consentRequired: false,
+        consentRequired: true,
         configs: {
             ua:
             {
