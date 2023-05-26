@@ -56,11 +56,12 @@ type ConnectorConfig = SubconfigCommon & ConfigSettings;
 
 type ConfigSettings = {
     name: string;
-    measurementId?: string;
-    accessToken?: string;
-    apiVersion?: string;
-    pixelId?: string;
-    testCode?: string | null;
+    measurementId: string;
+    optionalParameters?: {
+        accessToken?: string;
+        apiVersion?: string;
+        testCode?: string | null;
+    }
     enabledEvents: Partial<Events>;
 };
 
@@ -262,11 +263,13 @@ const sampleContext: Context = {
             },
             {
                 name: "tiktok",
+                measurementId: "321321",
                 live: false,
-                accessToken: "123123",
-                apiVersion: "v1.2",
-                pixelId: "321321",
-                testCode: "123",
+                optionalParameters: {
+                    accessToken: "123123",
+                    apiVersion: "v1.2",
+                    testCode: "123",
+                },
                 enabledEvents: {
                     addPaymentInfo: true,
                     addToCart: true,
