@@ -245,6 +245,11 @@ const sendEvent = (context: Context, config: ConnectorConfig, payload: Payload) 
  */
 
 const processEvents = (context: Context) => {
+    const consentNotGrantedMessage = consentNotGrantedReason(context)
+    if (consentNotGrantedMessage) {
+        console.log(`Ignoring all events: ${consentNotGrantedMessage}`)
+        return
+    }
     const keys = Object.keys(context.config.configs) as Array<keyof typeof context.config.configs> // Type coercion so I can loop through configs
     keys.forEach(key => {
         const config = context.config.configs[key]
@@ -262,7 +267,7 @@ const processEvents = (context: Context) => {
         }
 
         const payload = config.payloadBuilder(context);
-        const ignorePayloadReason = consentNotGrantedReason(context) || config.ignoreEventReason(payload);
+        const ignorePayloadReason = config.ignoreEventReason(payload);
         if (ignorePayloadReason) {
             console.log(`Ignoring ${config.name} Event:`, ignorePayloadReason);
             return;
