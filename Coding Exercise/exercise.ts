@@ -260,7 +260,7 @@ const sampleContext: Context = {
         configs: [
             {
                 name: "ua",
-                live: false,
+                live: true,
                 measurementId: "UA-12345-6",
                 enabledEvents: {
                     addPaymentInfo: true,
@@ -285,7 +285,7 @@ const sampleContext: Context = {
             {
                 name: "tiktok",
                 measurementId: "321321",
-                live: false,
+                live: true,
                 optionalParameters: {
                     accessToken: "123123",
                     apiVersion: "v1.2",
