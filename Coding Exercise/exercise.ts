@@ -137,7 +137,7 @@ type Payload = {
     en: string;
 };
 
-const uaEventMap: Record<DlEventName, EventKey> = {
+const eventMap: Record<DlEventName, EventKey> = {
     dl_add_payment_info: "addPaymentInfo",
     dl_add_shipping_info: "addShippingInfo",
     dl_add_to_cart: "addToCart",
@@ -210,7 +210,7 @@ const processEvents = (context: Context) => {
         }
 
         const shouldProcessEvent =
-            config.enabledEvents[uaEventMap[context.message.event_name]];
+            config.enabledEvents[eventMap[context.message.event_name]];
         if (!shouldProcessEvent) {
             return;
         }
