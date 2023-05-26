@@ -249,7 +249,7 @@ const processEvents = (context: Context) => {
 
 const sampleContext: Context = {
     message: {
-        event_name: "dl_add_to_cart",
+        event_name: "dl_login",
         attributes: {
             _ga: "1234567.1234567",
             user_id: "user_123",
