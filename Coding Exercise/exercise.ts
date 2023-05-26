@@ -167,6 +167,7 @@ const ignoreUaEventReason = (
 };
 
 const sendEventToUa = (context: Context, payload: UAPayload) => {
+  if (!context || !context.config || !context.config.ua) return
   console.log(
     `Sending event to UA for property ${context.config.ua.measurementId}`,
     payload
@@ -196,7 +197,7 @@ const processEvent = (context: Context) => {
   }
 
   const shouldProcessEvent =
-    uaConfig.enabledEvents[uaEventMap[context.message.event_name]];
+    uaConfig && uaConfig.enabledEvents[uaEventMap[context.message.event_name]];
   if (!shouldProcessEvent) {
     return;
   }
