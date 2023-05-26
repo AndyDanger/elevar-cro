@@ -179,7 +179,7 @@ const tikTokEventMap: Record<DlEventName, EventKey> = { // This is currently the
     dl_view_search_results: "viewSearchResults",
 };
 
-const buildPayload = (context: Context): UAPayload => {
+const buildUAPayload = (context: Context): UAPayload => {
     return {
         cid: context.message.attributes._ga,
         uid: context.message.attributes.user_id,
@@ -312,7 +312,7 @@ const sampleContext: Context = {
                     viewSearchResults: true,
                 },
                 eventMap: uaEventMap,
-                payloadBuilder: buildPayload,
+                payloadBuilder: buildUAPayload,
                 ignoreEventReason: ignoreUAEventReason
 
             },
