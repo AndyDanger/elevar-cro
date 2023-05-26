@@ -48,13 +48,8 @@ type Events = Record<EventKey, boolean>;
  * Below shows examples of TikTok and Universal Analytics configuration.
  */
 
-type SubconfigCommon = {
+type ConnectorConfig = {
     live: boolean;
-};
-
-type ConnectorConfig = SubconfigCommon & ConfigSettings;
-
-type ConfigSettings = {
     name: string;
     measurementId: string;
     optionalParameters?: {
@@ -62,12 +57,10 @@ type ConfigSettings = {
         apiVersion?: string;
         testCode?: string | null;
     }
-    enabledEvents: Partial<Events>;
     eventMap: Record<DlEventName, EventKey>;
 };
 
-type UAConfigSettings = {
-    measurementId: string;
+type UAEventsConnectorConfig = ConnectorConfig & {
     enabledEvents: Pick<
         Events,
         | "addPaymentInfo"
@@ -89,11 +82,7 @@ type UAConfigSettings = {
     >;
 };
 
-type TikTokConfigSettings = {
-    accessToken: string;
-    apiVersion: string;
-    pixelId: string;
-    testCode: string | null;
+type TikTokEventsConnectorConfig = ConnectorConfig & {
     enabledEvents: Pick<
         Events,
         | "addPaymentInfo"
@@ -107,6 +96,7 @@ type TikTokConfigSettings = {
         | "viewSearchResults"
     >;
 };
+
 
 /**
  * The context contains information about the message and 
@@ -125,7 +115,10 @@ type Context = {
     };
     config: {
         consentRequired: boolean;
-        configs: Array<ConnectorConfig>;
+        configs: {
+            ua?: UAEventsConnectorConfig | null;
+            tiktok?: TikTokEventsConnectorConfig | null;
+        }
     };
 };
 
@@ -222,7 +215,9 @@ const sendEvent = (context: Context, config: ConnectorConfig, payload: Payload) 
  */
 
 const processEvents = (context: Context) => {
-    context.config.configs.forEach(config => {
+    const keys = Object.keys(context.config.configs) as Array<keyof typeof context.config.configs>
+    keys.forEach(key => {
+        const config = context.config.configs[key]
         const isEnabled = Boolean(
             config && config.live && config.measurementId
         );
@@ -231,7 +226,7 @@ const processEvents = (context: Context) => {
         }
 
         const shouldProcessEvent =
-            config.enabledEvents[config.eventMap[context.message.event_name]];
+            config && config.enabledEvents[config.eventMap[context.message.event_name]];
         if (!shouldProcessEvent) {
             return;
         }
@@ -257,7 +252,8 @@ const sampleContext: Context = {
     },
     config: {
         consentRequired: false,
-        configs: [
+        configs: {
+            ua:
             {
                 name: "ua",
                 live: true,
@@ -282,6 +278,7 @@ const sampleContext: Context = {
                 },
                 eventMap: uaEventMap
             },
+            tiktok:
             {
                 name: "tiktok",
                 measurementId: "321321",
@@ -304,7 +301,7 @@ const sampleContext: Context = {
                 },
                 eventMap: tikTokEventMap
             }
-        ]
+        }
     },
 };
 processEvents(sampleContext);
