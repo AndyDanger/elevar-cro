@@ -5,61 +5,29 @@
  */
 
 type DlEventName =
-  | "dl_add_payment_info"
-  | "dl_add_shipping_info"
-  | "dl_add_to_cart"
-  | "dl_begin_checkout"
-  | "dl_login"
-  | "dl_purchase"
-  | "_refund"
-  | "dl_remove_from_cart"
-  | "dl_select_item"
-  | "dl_sign_up"
-  | "dl_subscription_purchase"
-  | "dl_user_data"
-  | "dl_view_cart"
-  | "dl_view_item"
-  | "dl_view_item_list"
-  | "dl_view_search_results";
+    | "dl_add_payment_info"
+    | "dl_add_shipping_info"
+    | "dl_add_to_cart"
+    | "dl_begin_checkout"
+    | "dl_login"
+    | "dl_purchase"
+    | "_refund"
+    | "dl_remove_from_cart"
+    | "dl_select_item"
+    | "dl_sign_up"
+    | "dl_subscription_purchase"
+    | "dl_user_data"
+    | "dl_view_cart"
+    | "dl_view_item"
+    | "dl_view_item_list"
+    | "dl_view_search_results";
 
 type EventKey =
-  | "addPaymentInfo"
-  | "addShippingInfo"
-  | "addToCart"
-  | "beginCheckout"
-  | "completePayment"
-  | "login"
-  | "pageView"
-  | "purchase"
-  | "refund"
-  | "removeFromCart"
-  | "signUp"
-  | "selectItem"
-  | "subscriptionPurchase"
-  | "viewCart"
-  | "viewItem"
-  | "viewItemList"
-  | "viewSearchResults";
-
-type Events = Record<EventKey, boolean>;
-
-/**
- * Each channel has configuration. We access this configuration often when we process events.
- * Below shows examples of TikTok and Universal Analytics configuration.
- */
-
-type SubconfigCommon = {
-  live: boolean;
-};
-
-type UAEventsConnectorConfig = SubconfigCommon & {
-  measurementId: string;
-  enabledEvents: Pick<
-    Events,
     | "addPaymentInfo"
     | "addShippingInfo"
     | "addToCart"
     | "beginCheckout"
+    | "completePayment"
     | "login"
     | "pageView"
     | "purchase"
@@ -71,27 +39,59 @@ type UAEventsConnectorConfig = SubconfigCommon & {
     | "viewCart"
     | "viewItem"
     | "viewItemList"
-    | "viewSearchResults"
-  >;
+    | "viewSearchResults";
+
+type Events = Record<EventKey, boolean>;
+
+/**
+ * Each channel has configuration. We access this configuration often when we process events.
+ * Below shows examples of TikTok and Universal Analytics configuration.
+ */
+
+type SubconfigCommon = {
+    live: boolean;
+};
+
+type UAEventsConnectorConfig = SubconfigCommon & {
+    measurementId: string;
+    enabledEvents: Pick<
+        Events,
+        | "addPaymentInfo"
+        | "addShippingInfo"
+        | "addToCart"
+        | "beginCheckout"
+        | "login"
+        | "pageView"
+        | "purchase"
+        | "refund"
+        | "removeFromCart"
+        | "signUp"
+        | "selectItem"
+        | "subscriptionPurchase"
+        | "viewCart"
+        | "viewItem"
+        | "viewItemList"
+        | "viewSearchResults"
+    >;
 };
 
 type TikTokEventsConnectorConfig = SubconfigCommon & {
-  accessToken: string;
-  apiVersion: string;
-  pixelId: string;
-  testCode: string | null;
-  enabledEvents: Pick<
-    Events,
-    | "addPaymentInfo"
-    | "addToCart"
-    | "beginCheckout"
-    | "completePayment"
-    | "purchase"
-    | "signUp"
-    | "subscriptionPurchase"
-    | "viewItem"
-    | "viewSearchResults"
-  >;
+    accessToken: string;
+    apiVersion: string;
+    pixelId: string;
+    testCode: string | null;
+    enabledEvents: Pick<
+        Events,
+        | "addPaymentInfo"
+        | "addToCart"
+        | "beginCheckout"
+        | "completePayment"
+        | "purchase"
+        | "signUp"
+        | "subscriptionPurchase"
+        | "viewItem"
+        | "viewSearchResults"
+    >;
 };
 
 /**
@@ -100,116 +100,116 @@ type TikTokEventsConnectorConfig = SubconfigCommon & {
  */
 
 type Context = {
-  message: {
-    event_name: DlEventName;
-    attributes: {
-      user_id?: string;
-      _ga?: string;
-      ttclid?: string;
-      consentGranted?: boolean;
+    message: {
+        event_name: DlEventName;
+        attributes: {
+            user_id?: string;
+            _ga?: string;
+            ttclid?: string;
+            consentGranted?: boolean;
+        };
     };
-  };
-  config: {
-    consentRequired: boolean;
-    ua: UAEventsConnectorConfig | null;
-    tiktok: TikTokEventsConnectorConfig | null;
-  };
+    config: {
+        consentRequired: boolean;
+        ua: UAEventsConnectorConfig | null;
+        tiktok: TikTokEventsConnectorConfig | null;
+    };
 };
 
 /* ============================================================= */
 
 type UAPayload = {
-  cid?: string;
-  uid?: string;
-  en: string;
+    cid?: string;
+    uid?: string;
+    en: string;
 };
 
 type TikTokPayload = {
     cid?: string;
     uid?: string;
     en: string;
-  };
+};
 
 const uaEventMap: Record<DlEventName, EventKey> = {
-  dl_add_payment_info: "addPaymentInfo",
-  dl_add_shipping_info: "addShippingInfo",
-  dl_add_to_cart: "addToCart",
-  dl_begin_checkout: "beginCheckout",
-  dl_login: "login",
-  dl_purchase: "purchase",
-  _refund: "refund",
-  dl_remove_from_cart: "removeFromCart",
-  dl_select_item: "selectItem",
-  dl_sign_up: "signUp",
-  dl_subscription_purchase: "subscriptionPurchase",
-  dl_user_data: "pageView",
-  dl_view_cart: "viewCart",
-  dl_view_item: "viewItem",
-  dl_view_item_list: "viewItemList",
-  dl_view_search_results: "viewSearchResults",
+    dl_add_payment_info: "addPaymentInfo",
+    dl_add_shipping_info: "addShippingInfo",
+    dl_add_to_cart: "addToCart",
+    dl_begin_checkout: "beginCheckout",
+    dl_login: "login",
+    dl_purchase: "purchase",
+    _refund: "refund",
+    dl_remove_from_cart: "removeFromCart",
+    dl_select_item: "selectItem",
+    dl_sign_up: "signUp",
+    dl_subscription_purchase: "subscriptionPurchase",
+    dl_user_data: "pageView",
+    dl_view_cart: "viewCart",
+    dl_view_item: "viewItem",
+    dl_view_item_list: "viewItemList",
+    dl_view_search_results: "viewSearchResults",
 };
 
 const buildUaPayload = (context: Context): UAPayload => {
-  return {
-    cid: context.message.attributes._ga,
-    uid: context.message.attributes.user_id,
-    en: context.message.event_name.replace(/^(dl)?_/, ""),
-    // Other event parameters would go here
-  };
+    return {
+        cid: context.message.attributes._ga,
+        uid: context.message.attributes.user_id,
+        en: context.message.event_name.replace(/^(dl)?_/, ""),
+        // Other event parameters would go here
+    };
 };
 
 const buildTikTokPayload = (context: Context): TikTokPayload => {
     return {
-      cid: context.message.attributes._ga,
-      uid: context.message.attributes.user_id,
-      en: context.message.event_name.replace(/^(dl)?_/, ""),
-      // Other event parameters would go here
+        cid: context.message.attributes._ga,
+        uid: context.message.attributes.user_id,
+        en: context.message.event_name.replace(/^(dl)?_/, ""),
+        // Other event parameters would go here
     };
-  };
+};
 
 const ignoreUaEventReason = (
-  context: Context,
-  payload: UAPayload
+    context: Context,
+    payload: UAPayload
 ): string | undefined => {
-  if (
-    context.config.consentRequired &&
-    !context.message.attributes.consentGranted
-  ) {
-    return "Consent not granted";
-  } else if (!payload.uid && !payload.cid) {
-    return "Missing user identifier";
-  }
+    if (
+        context.config.consentRequired &&
+        !context.message.attributes.consentGranted
+    ) {
+        return "Consent not granted";
+    } else if (!payload.uid && !payload.cid) {
+        return "Missing user identifier";
+    }
 };
 
 const ignoreTikTokEventReason = (
     context: Context,
     payload: TikTokPayload
-  ): string | undefined => {
+): string | undefined => {
     if (
-      context.config.consentRequired &&
-      !context.message.attributes.consentGranted
+        context.config.consentRequired &&
+        !context.message.attributes.consentGranted
     ) {
-      return "Consent not granted";
+        return "Consent not granted";
     } else if (!payload.uid && !payload.cid) {
-      return "Missing user identifier";
+        return "Missing user identifier";
     }
-  };
+};
 
 const sendEventToUa = (context: Context, payload: UAPayload) => {
-  if (!context || !context.config || !context.config.ua) return
-  console.log(
-    `Sending event to UA for property ${context.config.ua.measurementId}`,
-    payload
-  );
+    if (!context || !context.config || !context.config.ua) return
+    console.log(
+        `Sending event to UA for property ${context.config.ua.measurementId}`,
+        payload
+    );
 };
 
 const sendEventToTikTok = (context: Context, payload: TikTokPayload) => {
     if (!context || !context.config || !context.config.tiktok) return
     console.log(
-      `Sending event to Tiktok for property ${context.config.tiktok.pixelId}`,
-      payload
+        `Sending event to Tiktok for property ${context.config.tiktok.pixelId}`,
+        payload
     );
-  };
+};
 
 /* ============================================================= */
 
@@ -225,28 +225,28 @@ const sendEventToTikTok = (context: Context, payload: TikTokPayload) => {
  */
 
 const processEvent = (context: Context) => {
-  const uaConfig = context.config.ua;
-  const isUaEnabled = Boolean(
-    uaConfig && uaConfig.live && uaConfig.measurementId
-  );
-  if (!isUaEnabled) {
-    return;
-  }
+    const uaConfig = context.config.ua;
+    const isUaEnabled = Boolean(
+        uaConfig && uaConfig.live && uaConfig.measurementId
+    );
+    if (!isUaEnabled) {
+        return;
+    }
 
-  const shouldProcessEvent =
-    uaConfig && uaConfig.enabledEvents[uaEventMap[context.message.event_name]];
-  if (!shouldProcessEvent) {
-    return;
-  }
+    const shouldProcessEvent =
+        uaConfig && uaConfig.enabledEvents[uaEventMap[context.message.event_name]];
+    if (!shouldProcessEvent) {
+        return;
+    }
 
-  const payload = buildUaPayload(context);
-  const ignorePayloadReason = ignoreUaEventReason(context, payload);
-  if (ignorePayloadReason) {
-    console.log("Ignoring UA Event:", ignorePayloadReason);
-    return;
-  }
+    const payload = buildUaPayload(context);
+    const ignorePayloadReason = ignoreUaEventReason(context, payload);
+    if (ignorePayloadReason) {
+        console.log("Ignoring UA Event:", ignorePayloadReason);
+        return;
+    }
 
-  sendEventToUa(context, payload);
+    sendEventToUa(context, payload);
 };
 
 const processTikTokEvent = (context: Context) => {
@@ -255,76 +255,76 @@ const processTikTokEvent = (context: Context) => {
         tiktokConfig && tiktokConfig.live && tiktokConfig.pixelId
     );
     if (!isTikTokEnabled) {
-      return;
+        return;
     }
-  
+
     const shouldProcessEvent =
-    tiktokConfig && tiktokConfig.enabledEvents[uaEventMap[context.message.event_name]]; // What to do with event map? 
+        tiktokConfig && tiktokConfig.enabledEvents[uaEventMap[context.message.event_name]]; // What to do with event map? 
     if (!shouldProcessEvent) {
-      return;
+        return;
     }
-  
+
     const payload = buildTikTokPayload(context); // Are we building the same payload always?
     const ignorePayloadReason = ignoreTikTokEventReason(context, payload);
     if (ignorePayloadReason) {
-      console.log("Ignoring TikTok Event:", ignorePayloadReason);
-      return;
+        console.log("Ignoring TikTok Event:", ignorePayloadReason);
+        return;
     }
-  
+
     sendEventToTikTok(context, payload);
-  };
+};
 
 const sampleContext: Context = {
-  message: {
-    event_name: "dl_add_to_cart",
-    attributes: {
-      _ga: "1234567.1234567",
-      user_id: "user_123",
+    message: {
+        event_name: "dl_add_to_cart",
+        attributes: {
+            _ga: "1234567.1234567",
+            user_id: "user_123",
+        },
     },
-  },
-  config: {
-    consentRequired: false,
-    ua: {
-      live: false,
-      measurementId: "UA-12345-6",
-      enabledEvents: {
-        addPaymentInfo: true,
-        addShippingInfo: true,
-        addToCart: true,
-        beginCheckout: true,
-        login: true,
-        pageView: true,
-        purchase: true,
-        removeFromCart: true,
-        refund: true,
-        selectItem: true,
-        signUp: true,
-        subscriptionPurchase: true,
-        viewCart: true,
-        viewItem: true,
-        viewItemList: true,
-        viewSearchResults: true,
-      },
+    config: {
+        consentRequired: false,
+        ua: {
+            live: false,
+            measurementId: "UA-12345-6",
+            enabledEvents: {
+                addPaymentInfo: true,
+                addShippingInfo: true,
+                addToCart: true,
+                beginCheckout: true,
+                login: true,
+                pageView: true,
+                purchase: true,
+                removeFromCart: true,
+                refund: true,
+                selectItem: true,
+                signUp: true,
+                subscriptionPurchase: true,
+                viewCart: true,
+                viewItem: true,
+                viewItemList: true,
+                viewSearchResults: true,
+            },
+        },
+        tiktok: {
+            live: false,
+            accessToken: "123123",
+            apiVersion: "v1.2",
+            pixelId: "321321",
+            testCode: "123",
+            enabledEvents: {
+                addPaymentInfo: true,
+                addToCart: true,
+                beginCheckout: true,
+                completePayment: true,
+                purchase: true,
+                signUp: true,
+                subscriptionPurchase: true,
+                viewItem: true,
+                viewSearchResults: true,
+            },
+        },
     },
-    tiktok: {
-      live: false,
-      accessToken: "123123",
-      apiVersion: "v1.2",
-      pixelId: "321321",
-      testCode: "123",
-      enabledEvents: {
-        addPaymentInfo: true,
-        addToCart: true,
-        beginCheckout: true,
-        completePayment: true,
-        purchase: true,
-        signUp: true,
-        subscriptionPurchase: true,
-        viewItem: true,
-        viewSearchResults: true,
-      },
-    },
-  },
 };
 processEvent(sampleContext);
 processTikTokEvent(sampleContext);
