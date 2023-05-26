@@ -224,9 +224,9 @@ const processEvents = (context: Context) => {
         if (!isEnabled) {
             return;
         }
-
+        
         const shouldProcessEvent =
-            config && config.enabledEvents[config.eventMap[context.message.event_name]];
+            config && config.eventMap[context.message.event_name] && Object.values(config.enabledEvents)[Object.keys(config.enabledEvents).indexOf(config.eventMap[context.message.event_name])];
         if (!shouldProcessEvent) {
             return;
         }
