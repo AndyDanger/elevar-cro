@@ -52,12 +52,14 @@ type ConnectorConfig = {
     live: boolean;
     name: string;
     measurementId: string; // measurementId or pixelId
-    optionalParameters?: { 
+    optionalParameters?: {
         accessToken?: string;
         apiVersion?: string;
         testCode?: string | null;
     }
     eventMap: Record<DlEventName, EventKey>;
+    payloadBuilder: Function;
+    ignoreEventReason: Function
 };
 
 type UAEventsConnectorConfig = ConnectorConfig & {
@@ -124,12 +126,19 @@ type Context = {
 
 /* ============================================================= */
 
+type Payload =
+    | UAPayload
+    | TikTokPayload
 
-
-type Payload = { // Generic payload. This could definitely be fleshed out to send different data for each platform.
+type UAPayload = {
     cid?: string;
     uid?: string;
     en: string;
+};
+
+type TikTokPayload = {
+    ttid: string; // Event shouldn't be sent if missing ttid
+    event: "AddToCart" | "Login";
 };
 
 const uaEventMap: Record<DlEventName, EventKey> = {
@@ -170,7 +179,7 @@ const tikTokEventMap: Record<DlEventName, EventKey> = { // This is currently the
     dl_view_search_results: "viewSearchResults",
 };
 
-const buildPayload = (context: Context): Payload => {
+const buildPayload = (context: Context): UAPayload => {
     return {
         cid: context.message.attributes._ga,
         uid: context.message.attributes.user_id,
@@ -179,9 +188,17 @@ const buildPayload = (context: Context): Payload => {
     };
 };
 
-const ignoreEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
+const buildTikTokPayload = (context: Context): TikTokPayload => {
+    return {
+        ttid: context.message.attributes.ttclid ?? "", // Event shouldn't be sent if missing ttid
+        event: "AddToCart",
+        // Other event parameters would go here
+    };
+};
+
+const ignoreUAEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
     context: Context,
-    payload: Payload
+    payload: UAPayload
 ): string | undefined => {
     if (
         context.config.consentRequired &&
@@ -191,6 +208,23 @@ const ignoreEventReason = ( // This could be fleshed out to have specific ignore
     } else if (!payload.uid && !payload.cid) {
         return "Missing user identifier";
     }
+};
+
+const ignoreTikTokEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
+    context: Context,
+    payload: TikTokPayload
+): string | undefined => {
+    if (
+        context.config.consentRequired &&
+        !context.message.attributes.consentGranted
+    ) {
+        return "Consent not granted";
+    } else if (!payload.ttid) {
+        return "Missing Tiktok ID";
+    } else if (!payload.event) {
+        return "Missing Tiktok Event Name";
+    }
+
 };
 
 const sendEvent = (context: Context, config: ConnectorConfig, payload: Payload) => {
@@ -224,15 +258,15 @@ const processEvents = (context: Context) => {
         if (!isEnabled) {
             return;
         }
-        
+
         const shouldProcessEvent =
             config && config.eventMap[context.message.event_name] && Object.values(config.enabledEvents)[Object.keys(config.enabledEvents).indexOf(config.eventMap[context.message.event_name])]; // Type coercion so I can check if the event is enabled. Couldn't directly check the property on the Pick.
         if (!shouldProcessEvent) {
             return;
         }
 
-        const payload = buildPayload(context);
-        const ignorePayloadReason = ignoreEventReason(context, payload);
+        const payload = config.payloadBuilder(context);
+        const ignorePayloadReason = config.ignoreEventReason(context, payload);
         if (ignorePayloadReason) {
             console.log(`Ignoring ${config.name} Event:`, ignorePayloadReason);
             return;
@@ -244,10 +278,11 @@ const processEvents = (context: Context) => {
 
 const sampleContext: Context = {
     message: {
-        event_name: "dl_login",
+        event_name: "dl_add_to_cart",
         attributes: {
             _ga: "1234567.1234567",
             user_id: "user_123",
+            ttclid: "123"
         },
     },
     config: {
@@ -276,7 +311,10 @@ const sampleContext: Context = {
                     viewItemList: true,
                     viewSearchResults: true,
                 },
-                eventMap: uaEventMap
+                eventMap: uaEventMap,
+                payloadBuilder: buildPayload,
+                ignoreEventReason: ignoreUAEventReason
+
             },
             tiktok:
             {
@@ -299,7 +337,10 @@ const sampleContext: Context = {
                     viewItem: true,
                     viewSearchResults: true,
                 },
-                eventMap: tikTokEventMap
+                eventMap: tikTokEventMap,
+                payloadBuilder: buildTikTokPayload,
+                ignoreEventReason: ignoreTikTokEventReason
+
             }
         }
     },
