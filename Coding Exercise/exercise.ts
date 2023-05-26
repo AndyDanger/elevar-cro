@@ -124,6 +124,12 @@ type UAPayload = {
   en: string;
 };
 
+type TikTokPayload = {
+    cid?: string;
+    uid?: string;
+    en: string;
+  };
+
 const uaEventMap: Record<DlEventName, EventKey> = {
   dl_add_payment_info: "addPaymentInfo",
   dl_add_shipping_info: "addShippingInfo",
@@ -152,6 +158,15 @@ const buildUaPayload = (context: Context): UAPayload => {
   };
 };
 
+const buildTikTokPayload = (context: Context): TikTokPayload => {
+    return {
+      cid: context.message.attributes._ga,
+      uid: context.message.attributes.user_id,
+      en: context.message.event_name.replace(/^(dl)?_/, ""),
+      // Other event parameters would go here
+    };
+  };
+
 const ignoreUaEventReason = (
   context: Context,
   payload: UAPayload
@@ -166,6 +181,20 @@ const ignoreUaEventReason = (
   }
 };
 
+const ignoreTikTokEventReason = (
+    context: Context,
+    payload: TikTokPayload
+  ): string | undefined => {
+    if (
+      context.config.consentRequired &&
+      !context.message.attributes.consentGranted
+    ) {
+      return "Consent not granted";
+    } else if (!payload.uid && !payload.cid) {
+      return "Missing user identifier";
+    }
+  };
+
 const sendEventToUa = (context: Context, payload: UAPayload) => {
   if (!context || !context.config || !context.config.ua) return
   console.log(
@@ -173,6 +202,14 @@ const sendEventToUa = (context: Context, payload: UAPayload) => {
     payload
   );
 };
+
+const sendEventToTikTok = (context: Context, payload: TikTokPayload) => {
+    if (!context || !context.config || !context.config.tiktok) return
+    console.log(
+      `Sending event to Tiktok for property ${context.config.tiktok.pixelId}`,
+      payload
+    );
+  };
 
 /* ============================================================= */
 
@@ -211,6 +248,31 @@ const processEvent = (context: Context) => {
 
   sendEventToUa(context, payload);
 };
+
+const processTikTokEvent = (context: Context) => {
+    const tiktokConfig = context.config.tiktok;
+    const isTikTokEnabled = Boolean(
+        tiktokConfig && tiktokConfig.live && tiktokConfig.pixelId
+    );
+    if (!isTikTokEnabled) {
+      return;
+    }
+  
+    const shouldProcessEvent =
+    tiktokConfig && tiktokConfig.enabledEvents[uaEventMap[context.message.event_name]]; // What to do with event map? 
+    if (!shouldProcessEvent) {
+      return;
+    }
+  
+    const payload = buildTikTokPayload(context); // Are we building the same payload always?
+    const ignorePayloadReason = ignoreTikTokEventReason(context, payload);
+    if (ignorePayloadReason) {
+      console.log("Ignoring TikTok Event:", ignorePayloadReason);
+      return;
+    }
+  
+    sendEventToTikTok(context, payload);
+  };
 
 const sampleContext: Context = {
   message: {
@@ -265,3 +327,4 @@ const sampleContext: Context = {
   },
 };
 processEvent(sampleContext);
+processTikTokEvent(sampleContext);
