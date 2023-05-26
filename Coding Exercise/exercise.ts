@@ -179,7 +179,7 @@ const ignoreEventReason = (
     }
 };
 
-const sendEventToUa = (context: Context, config: ConnectorConfig, payload: Payload) => {
+const sendEvent = (context: Context, config: ConnectorConfig, payload: Payload) => {
     if (!context || !config) return
     console.log(
         `Sending event to ${config.name} for property ${config.measurementId}`,
@@ -200,29 +200,30 @@ const sendEventToUa = (context: Context, config: ConnectorConfig, payload: Paylo
  * This should only be worked on for a couple hours max.
  */
 
-const processEvent = (context: Context) => {
-    const uaConfig = context.config.configs[0];
-    const isUaEnabled = Boolean(
-        uaConfig && uaConfig.live && uaConfig.measurementId
-    );
-    if (!isUaEnabled) {
-        return;
-    }
+const processEvents = (context: Context) => {
+    context.config.configs.forEach(config => {
+        const isEnabled = Boolean(
+            config && config.live && config.measurementId
+        );
+        if (!isEnabled) {
+            return;
+        }
 
-    const shouldProcessEvent =
-        uaConfig && uaConfig.enabledEvents[uaEventMap[context.message.event_name]];
-    if (!shouldProcessEvent) {
-        return;
-    }
+        const shouldProcessEvent =
+            config.enabledEvents[uaEventMap[context.message.event_name]];
+        if (!shouldProcessEvent) {
+            return;
+        }
 
-    const payload = buildUaPayload(context);
-    const ignorePayloadReason = ignoreUaEventReason(context, payload);
-    if (ignorePayloadReason) {
-        console.log("Ignoring UA Event:", ignorePayloadReason);
-        return;
-    }
+        const payload = buildPayload(context);
+        const ignorePayloadReason = ignoreEventReason(context, payload);
+        if (ignorePayloadReason) {
+            console.log(`Ignoring ${config.name} Event:`, ignorePayloadReason);
+            return;
+        }
 
-    sendEventToUa(context, uaConfig, payload);
+        sendEvent(context, config, payload);
+    })
 };
 
 const sampleContext: Context = {
@@ -281,5 +282,4 @@ const sampleContext: Context = {
         ]
     },
 };
-processEvent(sampleContext);
-processTikTokEvent(sampleContext);
+processEvents(sampleContext);
