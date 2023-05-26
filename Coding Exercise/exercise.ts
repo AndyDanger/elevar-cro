@@ -51,8 +51,8 @@ type Events = Record<EventKey, boolean>;
 type ConnectorConfig = {
     live: boolean;
     name: string;
-    measurementId: string;
-    optionalParameters?: {
+    measurementId: string; // measurementId or pixelId
+    optionalParameters?: { 
         accessToken?: string;
         apiVersion?: string;
         testCode?: string | null;
@@ -115,7 +115,7 @@ type Context = {
     };
     config: {
         consentRequired: boolean;
-        configs: {
+        configs: { // Was going to make this an array of generic connectors, but I think we should define which events are enabled
             ua?: UAEventsConnectorConfig | null;
             tiktok?: TikTokEventsConnectorConfig | null;
         }
@@ -126,7 +126,7 @@ type Context = {
 
 
 
-type Payload = {
+type Payload = { // Generic payload. This could definitely be fleshed out to send different data for each platform.
     cid?: string;
     uid?: string;
     en: string;
@@ -151,7 +151,7 @@ const uaEventMap: Record<DlEventName, EventKey> = {
     dl_view_search_results: "viewSearchResults",
 };
 
-const tikTokEventMap: Record<DlEventName, EventKey> = {
+const tikTokEventMap: Record<DlEventName, EventKey> = { // This is currently the same as UA but these events could be changed as necessary
     dl_add_payment_info: "addPaymentInfo",
     dl_add_shipping_info: "addShippingInfo",
     dl_add_to_cart: "addToCart",
@@ -179,7 +179,7 @@ const buildPayload = (context: Context): Payload => {
     };
 };
 
-const ignoreEventReason = (
+const ignoreEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
     context: Context,
     payload: Payload
 ): string | undefined => {
@@ -196,7 +196,7 @@ const ignoreEventReason = (
 const sendEvent = (context: Context, config: ConnectorConfig, payload: Payload) => {
     if (!context || !config) return
     console.log(
-        `Sending event to ${config.name} for property ${config.measurementId}`,
+        `Sending event to ${config.name} for property ${config.measurementId}`, // Could have specific messaging for each platform.
         payload
     );
 };
@@ -215,7 +215,7 @@ const sendEvent = (context: Context, config: ConnectorConfig, payload: Payload) 
  */
 
 const processEvents = (context: Context) => {
-    const keys = Object.keys(context.config.configs) as Array<keyof typeof context.config.configs>
+    const keys = Object.keys(context.config.configs) as Array<keyof typeof context.config.configs> // Type coercion so I can loop through configs
     keys.forEach(key => {
         const config = context.config.configs[key]
         const isEnabled = Boolean(
@@ -226,7 +226,7 @@ const processEvents = (context: Context) => {
         }
         
         const shouldProcessEvent =
-            config && config.eventMap[context.message.event_name] && Object.values(config.enabledEvents)[Object.keys(config.enabledEvents).indexOf(config.eventMap[context.message.event_name])];
+            config && config.eventMap[context.message.event_name] && Object.values(config.enabledEvents)[Object.keys(config.enabledEvents).indexOf(config.eventMap[context.message.event_name])]; // Type coercion so I can check if the event is enabled. Couldn't directly check the property on the Pick.
         if (!shouldProcessEvent) {
             return;
         }
