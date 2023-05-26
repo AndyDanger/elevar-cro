@@ -6,7 +6,7 @@
     flex-shrink: unset;
 }
 
-.v2 .upsellsHeader {
+.upsellsHeader {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -47,17 +47,19 @@
 }
 
 .swiperExists {
-    max-height: calc(100vh - 430px) !important;
+    max-height: calc(100vh - 465px) !important;
 }
 
 .swiperEmpty {
     min-height: calc(100vh - 130px) !important;
 }
 
+.v1 [data-comp="UpSellProduct"] > div > p {
+    display: none !important;
+}
 
-[data-comp="UpSellsBlock"] .swiper-pagination {
-    bottom: 10px !important;
-    top: unset !important;
-    left: 20px !important;
-    width: auto !important;
+.v1 .swiper-button-next::after,
+.v1 .swiper-button-prev::after {
+    font-weight: bold !important;
+    font-size: 18px !important;
 }
