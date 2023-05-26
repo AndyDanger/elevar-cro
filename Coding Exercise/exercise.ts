@@ -52,7 +52,19 @@ type SubconfigCommon = {
     live: boolean;
 };
 
-type UAEventsConnectorConfig = SubconfigCommon & {
+type ConnectorConfig = SubconfigCommon & ConfigSettings;
+
+type ConfigSettings = {
+    name: string;
+    measurementId?: string;
+    accessToken?: string;
+    apiVersion?: string;
+    pixelId?: string;
+    testCode?: string | null;
+    enabledEvents: Partial<Events>;
+};
+
+type UAConfigSettings = {
     measurementId: string;
     enabledEvents: Pick<
         Events,
@@ -75,7 +87,7 @@ type UAEventsConnectorConfig = SubconfigCommon & {
     >;
 };
 
-type TikTokEventsConnectorConfig = SubconfigCommon & {
+type TikTokConfigSettings = {
     accessToken: string;
     apiVersion: string;
     pixelId: string;
@@ -111,8 +123,7 @@ type Context = {
     };
     config: {
         consentRequired: boolean;
-        ua: UAEventsConnectorConfig | null;
-        tiktok: TikTokEventsConnectorConfig | null;
+        configs: Array<ConnectorConfig>;
     };
 };
 
@@ -196,17 +207,17 @@ const ignoreTikTokEventReason = (
 };
 
 const sendEventToUa = (context: Context, payload: UAPayload) => {
-    if (!context || !context.config || !context.config.ua) return
+    if (!context || !context.config || !context.config.configs || !context.config.configs) return
     console.log(
-        `Sending event to UA for property ${context.config.ua.measurementId}`,
+        `Sending event to UA for property ${context.config.configs[0].measurementId}`,
         payload
     );
 };
 
 const sendEventToTikTok = (context: Context, payload: TikTokPayload) => {
-    if (!context || !context.config || !context.config.tiktok) return
+    if (!context || !context.config || !context.config.configs || !context.config.configs) return
     console.log(
-        `Sending event to Tiktok for property ${context.config.tiktok.pixelId}`,
+        `Sending event to Tiktok for property ${context.config.configs[1].measurementId}`,
         payload
     );
 };
@@ -225,7 +236,7 @@ const sendEventToTikTok = (context: Context, payload: TikTokPayload) => {
  */
 
 const processEvent = (context: Context) => {
-    const uaConfig = context.config.ua;
+    const uaConfig = context.config.configs[0];
     const isUaEnabled = Boolean(
         uaConfig && uaConfig.live && uaConfig.measurementId
     );
@@ -250,9 +261,9 @@ const processEvent = (context: Context) => {
 };
 
 const processTikTokEvent = (context: Context) => {
-    const tiktokConfig = context.config.tiktok;
+    const tiktokConfig = context.config.configs[1];
     const isTikTokEnabled = Boolean(
-        tiktokConfig && tiktokConfig.live && tiktokConfig.pixelId
+        tiktokConfig && tiktokConfig.live && tiktokConfig.measurementId
     );
     if (!isTikTokEnabled) {
         return;
@@ -284,46 +295,50 @@ const sampleContext: Context = {
     },
     config: {
         consentRequired: false,
-        ua: {
-            live: false,
-            measurementId: "UA-12345-6",
-            enabledEvents: {
-                addPaymentInfo: true,
-                addShippingInfo: true,
-                addToCart: true,
-                beginCheckout: true,
-                login: true,
-                pageView: true,
-                purchase: true,
-                removeFromCart: true,
-                refund: true,
-                selectItem: true,
-                signUp: true,
-                subscriptionPurchase: true,
-                viewCart: true,
-                viewItem: true,
-                viewItemList: true,
-                viewSearchResults: true,
+        configs: [
+            {
+                name: "ua",
+                live: false,
+                measurementId: "UA-12345-6",
+                enabledEvents: {
+                    addPaymentInfo: true,
+                    addShippingInfo: true,
+                    addToCart: true,
+                    beginCheckout: true,
+                    login: true,
+                    pageView: true,
+                    purchase: true,
+                    removeFromCart: true,
+                    refund: true,
+                    selectItem: true,
+                    signUp: true,
+                    subscriptionPurchase: true,
+                    viewCart: true,
+                    viewItem: true,
+                    viewItemList: true,
+                    viewSearchResults: true,
+                },
             },
-        },
-        tiktok: {
-            live: false,
-            accessToken: "123123",
-            apiVersion: "v1.2",
-            pixelId: "321321",
-            testCode: "123",
-            enabledEvents: {
-                addPaymentInfo: true,
-                addToCart: true,
-                beginCheckout: true,
-                completePayment: true,
-                purchase: true,
-                signUp: true,
-                subscriptionPurchase: true,
-                viewItem: true,
-                viewSearchResults: true,
-            },
-        },
+            {
+                name: "tiktok",
+                live: false,
+                accessToken: "123123",
+                apiVersion: "v1.2",
+                pixelId: "321321",
+                testCode: "123",
+                enabledEvents: {
+                    addPaymentInfo: true,
+                    addToCart: true,
+                    beginCheckout: true,
+                    completePayment: true,
+                    purchase: true,
+                    signUp: true,
+                    subscriptionPurchase: true,
+                    viewItem: true,
+                    viewSearchResults: true,
+                },
+            }
+        ]
     },
 };
 processEvent(sampleContext);
