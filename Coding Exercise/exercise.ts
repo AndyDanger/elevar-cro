@@ -205,7 +205,7 @@ const consentNotGrantedReason = (context: Context): string | undefined => {
     }
 };
 
-const ignoreUAEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
+const ignoreUAEventReason = (
     payload: UAPayload
 ): string | undefined => {
     if (!payload.uid && !payload.cid) {
@@ -213,7 +213,7 @@ const ignoreUAEventReason = ( // This could be fleshed out to have specific igno
     }
 };
 
-const ignoreTikTokEventReason = ( // This could be fleshed out to have specific ignore conditions for each platform. I.e. if the TikTok API version is too low, don't send.
+const ignoreTikTokEventReason = (
     payload: TikTokPayload
 ): string | undefined => {
     if (!payload.ttid) {
