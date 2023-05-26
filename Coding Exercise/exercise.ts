@@ -129,13 +129,9 @@ type Context = {
 
 /* ============================================================= */
 
-type UAPayload = {
-    cid?: string;
-    uid?: string;
-    en: string;
-};
 
-type TikTokPayload = {
+
+type Payload = {
     cid?: string;
     uid?: string;
     en: string;
@@ -160,7 +156,7 @@ const uaEventMap: Record<DlEventName, EventKey> = {
     dl_view_search_results: "viewSearchResults",
 };
 
-const buildUaPayload = (context: Context): UAPayload => {
+const buildPayload = (context: Context): Payload => {
     return {
         cid: context.message.attributes._ga,
         uid: context.message.attributes.user_id,
@@ -169,18 +165,9 @@ const buildUaPayload = (context: Context): UAPayload => {
     };
 };
 
-const buildTikTokPayload = (context: Context): TikTokPayload => {
-    return {
-        cid: context.message.attributes._ga,
-        uid: context.message.attributes.user_id,
-        en: context.message.event_name.replace(/^(dl)?_/, ""),
-        // Other event parameters would go here
-    };
-};
-
-const ignoreUaEventReason = (
+const ignoreEventReason = (
     context: Context,
-    payload: UAPayload
+    payload: Payload
 ): string | undefined => {
     if (
         context.config.consentRequired &&
@@ -192,32 +179,10 @@ const ignoreUaEventReason = (
     }
 };
 
-const ignoreTikTokEventReason = (
-    context: Context,
-    payload: TikTokPayload
-): string | undefined => {
-    if (
-        context.config.consentRequired &&
-        !context.message.attributes.consentGranted
-    ) {
-        return "Consent not granted";
-    } else if (!payload.uid && !payload.cid) {
-        return "Missing user identifier";
-    }
-};
-
-const sendEventToUa = (context: Context, payload: UAPayload) => {
-    if (!context || !context.config || !context.config.configs || !context.config.configs) return
+const sendEventToUa = (context: Context, config: ConnectorConfig, payload: Payload) => {
+    if (!context || !config) return
     console.log(
-        `Sending event to UA for property ${context.config.configs[0].measurementId}`,
-        payload
-    );
-};
-
-const sendEventToTikTok = (context: Context, payload: TikTokPayload) => {
-    if (!context || !context.config || !context.config.configs || !context.config.configs) return
-    console.log(
-        `Sending event to Tiktok for property ${context.config.configs[1].measurementId}`,
+        `Sending event to ${config.name} for property ${config.measurementId}`,
         payload
     );
 };
@@ -257,32 +222,7 @@ const processEvent = (context: Context) => {
         return;
     }
 
-    sendEventToUa(context, payload);
-};
-
-const processTikTokEvent = (context: Context) => {
-    const tiktokConfig = context.config.configs[1];
-    const isTikTokEnabled = Boolean(
-        tiktokConfig && tiktokConfig.live && tiktokConfig.measurementId
-    );
-    if (!isTikTokEnabled) {
-        return;
-    }
-
-    const shouldProcessEvent =
-        tiktokConfig && tiktokConfig.enabledEvents[uaEventMap[context.message.event_name]]; // What to do with event map? 
-    if (!shouldProcessEvent) {
-        return;
-    }
-
-    const payload = buildTikTokPayload(context); // Are we building the same payload always?
-    const ignorePayloadReason = ignoreTikTokEventReason(context, payload);
-    if (ignorePayloadReason) {
-        console.log("Ignoring TikTok Event:", ignorePayloadReason);
-        return;
-    }
-
-    sendEventToTikTok(context, payload);
+    sendEventToUa(context, uaConfig, payload);
 };
 
 const sampleContext: Context = {
