@@ -63,6 +63,7 @@ type ConfigSettings = {
         testCode?: string | null;
     }
     enabledEvents: Partial<Events>;
+    eventMap: Record<DlEventName, EventKey>;
 };
 
 type UAConfigSettings = {
@@ -138,7 +139,26 @@ type Payload = {
     en: string;
 };
 
-const eventMap: Record<DlEventName, EventKey> = {
+const uaEventMap: Record<DlEventName, EventKey> = {
+    dl_add_payment_info: "addPaymentInfo",
+    dl_add_shipping_info: "addShippingInfo",
+    dl_add_to_cart: "addToCart",
+    dl_begin_checkout: "beginCheckout",
+    dl_login: "login",
+    dl_purchase: "purchase",
+    _refund: "refund",
+    dl_remove_from_cart: "removeFromCart",
+    dl_select_item: "selectItem",
+    dl_sign_up: "signUp",
+    dl_subscription_purchase: "subscriptionPurchase",
+    dl_user_data: "pageView",
+    dl_view_cart: "viewCart",
+    dl_view_item: "viewItem",
+    dl_view_item_list: "viewItemList",
+    dl_view_search_results: "viewSearchResults",
+};
+
+const tikTokEventMap: Record<DlEventName, EventKey> = {
     dl_add_payment_info: "addPaymentInfo",
     dl_add_shipping_info: "addShippingInfo",
     dl_add_to_cart: "addToCart",
@@ -211,7 +231,7 @@ const processEvents = (context: Context) => {
         }
 
         const shouldProcessEvent =
-            config.enabledEvents[eventMap[context.message.event_name]];
+            config.enabledEvents[config.eventMap[context.message.event_name]];
         if (!shouldProcessEvent) {
             return;
         }
@@ -260,6 +280,7 @@ const sampleContext: Context = {
                     viewItemList: true,
                     viewSearchResults: true,
                 },
+                eventMap: uaEventMap
             },
             {
                 name: "tiktok",
@@ -281,6 +302,7 @@ const sampleContext: Context = {
                     viewItem: true,
                     viewSearchResults: true,
                 },
+                eventMap: tikTokEventMap
             }
         ]
     },
