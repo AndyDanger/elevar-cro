@@ -1,10 +1,10 @@
-var pdpReviewsInterval = setInterval(function () {
-    var button = document.querySelector('.bv-control-bar-filter-offset .bv-dropdown-target button')
+let pdpReviewsInterval = setInterval(function () {
+    let button = document.querySelector("#tab1 > div").shadowRoot.querySelector("#bv-dropdown-title-reviews")
     if (!button) {
         return
     }
     clearInterval(pdpReviewsInterval)
-    var oldScroll = $(window).scrollTop();
+    let oldScroll = $(window).scrollTop();
 
     $(window).one('scroll', function () {
         console.log('scroll 1')
@@ -12,20 +12,23 @@ var pdpReviewsInterval = setInterval(function () {
     });
     document.body.style.position = "fixed"
     document.body.style.overflow = "hidden"
+    document.body.style.width = "100%"
+
     button.click()
-    var clickInterval = setInterval(function () {
-        var option = document.querySelector('#data-bv-dropdown-item-positive')
+    let clickInterval = setInterval(function () {
+        let option = document.querySelector("#tab1 > div").shadowRoot.querySelector("li:nth-child(5) span")
         if (!option) {
             return
         }
         clearInterval(clickInterval)
-        var oldScroll = $(window).scrollTop();
+        let oldScroll = $(window).scrollTop();
 
         console.log('scroll 2')
         $(window).scrollTop(0); //disable scroll just once
         console.log('clicking')
         document.body.style.position = ""
         document.body.style.overflow = ""
+        document.body.style.width = ""
         option.click(function (event) {
             console.log('scroll 3')
             $(window).scrollTop(0); //disable scroll just once

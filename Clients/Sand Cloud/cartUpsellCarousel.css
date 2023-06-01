@@ -1,8 +1,8 @@
-.v2 [data-comp="UpSellsBlock"] {
+[data-comp="UpSellsBlock"] {
     padding: 15px 5px !important;
 }
 
-.v2 [data-comp="UpSellsBlock"] .swiper-slide {
+[data-comp="UpSellsBlock"] .swiper-slide {
     flex-shrink: unset;
 }
 
@@ -13,7 +13,7 @@
     margin-bottom: 10px;
 }
 
-.v2 [data-comp="UpSellProduct"] {
+[data-comp="UpSellProduct"] {
     min-height: 250px;
     justify-content: space-between;
     flex-direction: column !important;
@@ -22,27 +22,27 @@
     padding-right: 5px !important
 }
 
-.v2 [data-comp="UpSellProduct"]>div {
+[data-comp="UpSellProduct"]>div {
     flex: none;
     padding-right: 5px !important
 }
 
-.v2 [data-comp="UpSellProduct"]>div>div {
+[data-comp="UpSellProduct"]>div>div {
     justify-content: center;
 }
 
-.v2 [data-comp="UpSellProduct"] [data-comp="Link-Internal"] {
+[data-comp="UpSellProduct"] [data-comp="Link-Internal"] {
     flex: 1 0 0;
     margin-top: 15px;
     text-align: center;
     font-size: 14px !important;
 }
 
-.v2 [data-comp="UpSellProduct"] [data-comp="AddToCart"] button {
+[data-comp="UpSellProduct"] [data-comp="AddToCart"] button {
     padding: 0px 10px !important;
 }
 
-.v2 [data-comp="UpSellProduct"] p {
+[data-comp="UpSellProduct"] p {
     display: none !important;
 }
 

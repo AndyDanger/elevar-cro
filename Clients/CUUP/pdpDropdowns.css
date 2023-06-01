@@ -8,6 +8,6 @@
     padding: 10px;
 }
 
-.add-to-cart-form__content .option-selectors__selectors.size-options--buttons {
+.pdpDropdowns .add-to-cart-form__content .option-selectors__selectors.size-options--buttons {
     display: none !important;
 }
