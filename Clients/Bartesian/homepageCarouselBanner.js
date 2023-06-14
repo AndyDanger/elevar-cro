@@ -18,8 +18,8 @@ document.getElementsByTagName("head")[0].appendChild(slickCss)
 let desktopImages = [
     {
         name: `Main Banner - The Bartesian`,
-        image: `https://i.imgur.com/LVr1nnp.jpg`,
-        link: `https://bartesian.com/products/cocktail-maker`,
+        image: `https://i.imgur.com/URV2Lm7.jpg`,
+        link: `https://bartesian.com/products/marg-summer`,
     },
     {
         name: `Curated Cocktail Collections`,
@@ -41,8 +41,8 @@ let desktopImages = [
 let mobileImages = [
     {
         name: `Main Banner - The Bartesian`,
-        image: `https://i.imgur.com/2fMElgT.jpg`,
-        link: `https://bartesian.com/products/cocktail-maker`,
+        image: `https://i.imgur.com/WQUzPUF.jpg`,
+        link: `https://bartesian.com/products/marg-summer`,
     },
     {
         name: `Curated Cocktail Collections`,

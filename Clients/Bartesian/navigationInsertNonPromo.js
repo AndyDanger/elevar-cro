@@ -14,7 +14,7 @@ let variant1 = () => {
         promoColumnLink.className = `promoColumnLink submenu__columns one--fourth`
         promoColumnLink.innerHTML =
             `
-            <img src="https://i.imgur.com/Mwq4C6Ql.jpg" style="margin-top: 10px;">
+            <img src="https://i.imgur.com/X7YE5wbl.jpg" style="margin-top: 10px;">
         `
         let navItems = cocktailsLink.nextElementSibling.querySelectorAll(`.submenu__columns`)
         navItems.forEach(navItem => {
@@ -38,7 +38,7 @@ let variant2 = () => {
         promoColumnLink.className = `promoColumnLink submenu__columns one--fourth`
         promoColumnLink.innerHTML =
             `
-            <img src="https://i.imgur.com/DwcPrTYl.jpg" style="margin-top: 10px;">
+            <img src="https://i.imgur.com/HBabinol.jpg" style="margin-top: 10px;">
         `
         let navItems = cocktailsLink.nextElementSibling.querySelectorAll(`.submenu__columns`)
         navItems.forEach(navItem => {

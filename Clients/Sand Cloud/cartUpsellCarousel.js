@@ -9,6 +9,17 @@ if (!window.swiperScriptAdded) {
 window.intervalSet = false
 let cartSwiperInterval = setInterval(() => {
   let upsellsCarousel = document.querySelector(`[data-comp="UpSellsBlock"] .swiper-container`)
+  if (upsellsCarousel) {
+    upsellsCarousel.querySelectorAll(`a[data-comp="Link-Internal"]`).forEach((link, index) => {
+      if (link.innerText.includes(`X-LARGE`)) {
+        link.innerText = `Mystery Pouch XL`
+      }
+      if (link.innerText.includes(`SEAGLASS`)) {
+        link.innerText = `Terra Hair Towel`
+      }
+    })
+  }
+
   if (document.querySelector(`.upsellsHeader`) || !upsellsCarousel || !upsellsCarousel.querySelector(`button`) || !upsellsCarousel.querySelector(`[data-comp="Locale.Variant"] p`) || upsellsCarousel.querySelectorAll(`button`).length != upsellsCarousel.querySelectorAll(`[data-comp="Locale.Variant"] p`).length || !upsellsCarousel.querySelector(`button`).innerText.includes(`ADD`) || !upsellsCarousel.querySelector(`[data-comp="Locale.Variant"] p`).innerText.includes(`$`) || !upsellsCarousel.swiper || !Swiper) return
   // clearInterval(cartSwiperInterval)
   document.querySelector(`[data-comp="UpSellsBlock"]`).parentElement.classList.add(`v2`)
@@ -29,6 +40,7 @@ let cartSwiperInterval = setInterval(() => {
     button.innerText += ` - ${prices[index].innerText}`
   })
 
+
   let swiper = upsellsCarousel.swiper
   swiper.destroy(false, true)
   let newSwiper = new Swiper(`[data-comp="UpSellsBlock"] .swiper-container`, {
@@ -41,6 +53,8 @@ let cartSwiperInterval = setInterval(() => {
       prevEl: ".swiper-button-prev",
     },
   })
+
+  document.querySelector(`[data-comp="ItemsOrEmpty"]`).append(document.querySelector(`[data-comp="UpSellsBlock"]`))
 
   if (window.intervalSet) return
   window.intervalSet = true

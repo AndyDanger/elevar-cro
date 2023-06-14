@@ -18,24 +18,29 @@ if (!window.slickScriptLoaded) {
     document.getElementsByTagName("head")[0].appendChild(slickCss)
 }
 
-window.currentVariantUrl = ``
+window.desktopPdpThumbnailsVariant = ``
 
 let pdpThumbnailsInterval = setInterval(() => {
     let imageWrapper = document.querySelector(`.image-pane--desktop:not(.carousel-nav)`)
-    if (!imageWrapper || window.currentVariantUrl == window.location.pathname || typeof jQuery == `undefined` || !$().slick) return
+    if (!imageWrapper || window.desktopPdpThumbnailsVariant == window.location.pathname || typeof jQuery == `undefined` || !$().slick) return
     // clearInterval(pdpThumbnailsInterval)
-    window.currentVariantUrl = window.location.pathname
+    console.log(`inserting thumbnails`)
+    window.desktopPdpThumbnailsVariant = window.location.pathname
 
+    // debugger
     if (imageWrapper.classList.contains(`carousel-main`)) {
         $(imageWrapper).slick('unslick')
+        imageWrapper.querySelectorAll(`img`).forEach(img => {
+            if (!img.hasAttribute(`alt`)) img.remove()
+        })
         document.querySelector(`.carousel-nav`) ? document.querySelector(`.carousel-nav`).remove() : null
     }
 
     let thumbnailsWrapper = imageWrapper.cloneNode(true)
-    imageWrapper.parentElement.insertBefore(thumbnailsWrapper, imageWrapper)
+    thumbnailsWrapper.classList.remove(`carousel-main`)
     imageWrapper.classList.add(`carousel-main`)
     thumbnailsWrapper.classList.add(`carousel-nav`)
-    thumbnailsWrapper.classList.remove(`carousel-main`)
+    imageWrapper.parentElement.insertBefore(thumbnailsWrapper, imageWrapper)
 
     $(imageWrapper).slick({
         arrows: false,
@@ -47,7 +52,7 @@ let pdpThumbnailsInterval = setInterval(() => {
     })
 
     $(thumbnailsWrapper).slick({
-        slidesToShow: thumbnailsWrapper.querySelectorAll(`img`).length - 1,
+        slidesToShow: thumbnailsWrapper.querySelectorAll(`img`).length < 5 ? thumbnailsWrapper.querySelectorAll(`img`).length - 1 : 5,
         slidesToScroll: 1,
         asNavFor: '.carousel-main',
         dots: false,
@@ -58,5 +63,8 @@ let pdpThumbnailsInterval = setInterval(() => {
         verticalSwiping: true,
     })
 
+    window.dispatchEvent(new Event('resize'));
+    document.querySelector(`.carousel-nav`).slick.refresh()
+    document.querySelector(`.carousel-main`).slick.refresh()
 
 }, 250)

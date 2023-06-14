@@ -1,4 +1,10 @@
+.scroll-locked body {
+    overflow: hidden;
+}
+
 [data-comp="UpSellsBlock"] {
+    order: 3;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -20px 20px 0px;
     padding: 15px 5px !important;
 }
 
@@ -14,7 +20,7 @@
 }
 
 [data-comp="UpSellProduct"] {
-    min-height: 250px;
+    min-height: 150px;
     justify-content: space-between;
     flex-direction: column !important;
     align-items: center !important;
@@ -32,13 +38,17 @@
 }
 
 [data-comp="UpSellProduct"] [data-comp="Link-Internal"] {
+    height: 24px;
     flex: 1 0 0;
     margin-top: 15px;
     text-align: center;
-    font-size: 14px !important;
+    font-size: 13px !important;
 }
 
 [data-comp="UpSellProduct"] [data-comp="AddToCart"] button {
+    height: 40px !important;
+    line-height: 38px !important;
+    min-width: 135px !important;
     padding: 0px 10px !important;
 }
 
@@ -46,15 +56,53 @@
     display: none !important;
 }
 
+[data-comp="UpSellProduct"] [data-comp="Image"] {
+    width: 48px !important;
+    height: 60px !important;
+    margin: 0px 0px 5px !important;
+}
+
+[data-comp="SidebarShell"] [data-comp="Footer"] {
+    background: white;
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    width: 100%;
+}
+
+[data-comp="SidebarShell"] [data-comp="Footer"] > div {
+    min-height: 100px !important;
+}
+
+[data-comp="SidebarShell"] [data-comp="ItemsOrEmpty"] {
+    justify-content: space-between;
+    height: calc(var(--viewport-height) - 205px);
+    overflow-y: auto;
+}
+
+[data-comp="SidebarShell"] [data-comp="LineItems"] {
+    overflow: initial !important;
+}
+
+[data-comp="SidebarShell"] [data-comp="Empty"] {
+    justify-content: flex-start;
+    flex: 1 1 0%;
+}
+
 .swiperExists {
-    max-height: calc(100vh - 465px) !important;
+    height: 100% !important;
+    /* max-height: calc(100vh - 425px) !important; */
 }
 
 .swiperEmpty {
     min-height: calc(100vh - 130px) !important;
 }
 
-.v1 [data-comp="UpSellProduct"] > div > p {
+.swiperEmpty [data-comp="UpSellsBlock"] {
+    display: none;
+}
+
+.v1 [data-comp="UpSellProduct"]>div>p {
     display: none !important;
 }
 

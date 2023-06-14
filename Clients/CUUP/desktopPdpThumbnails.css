@@ -1,5 +1,5 @@
 #pdp {
-    padding: 0px 10%;
+    padding: 0px 20%;
 }
 
 .carousel-nav,
@@ -11,7 +11,7 @@
 
 
 .carousel-nav {
-    width: 15%;
+    width: 20%;
 }
 
 .carousel-nav img {
@@ -19,5 +19,11 @@
 }
 
 .carousel-main {
-    width: 85%;
+    width: 80%;
+}
+
+@media only screen and (min-width: 1300px) {
+    .pdp__content__inner {
+        padding: 0px 40px !important;
+    }
 }
