@@ -95,10 +95,10 @@ let bathArray = [
 
 let newReleasesArray = [
     {
-        href: `https://www.sandcloud.com/collections/disney-sand-cloud`,
-        img: `https://i.imgur.com/nimkdXZl.jpg`,
-        header: `Disney | Sand Cloud`,
-        description: `Join your fave characters on the sand.`
+        href: `https://www.sandcloud.com/collections/disney-sand-cloud-kids`,
+        img: `https://i.imgur.com/gGiSnQkl.jpg`,
+        header: `Disney | Sand Cloud Kids`,
+        description: `Ready, set, PLAY!`
     },
     {
         href: `https://www.sandcloud.com/collections/star-wars-x-sand-cloud`,

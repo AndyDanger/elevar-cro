@@ -1,0 +1,45 @@
+.hp-carousel-banner-wrapper {
+    display: none !important;
+}
+
+#desktopCarouselBanner2,
+#mobileCarouselBanner2 {
+  width: 100%;
+}
+
+#desktopCarouselBanner2 .slick-dots,
+#mobileCarouselBanner2 .slick-dots {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+#desktopCarouselBanner2 .slick-dots li button,
+#mobileCarouselBanner2 .slick-dots li button {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+#desktopCarouselBanner2 .slick-dots li button:before,
+#mobileCarouselBanner2 .slick-dots li button:before {
+    opacity: .4;
+    font-size: 32px !important;
+}
+
+#desktopCarouselBanner2 .slick-prev:before, .slick-next:before,
+#mobileCarouselBanner2 .slick-prev:before, .slick-next:before {
+    color: #606060 !important;
+    font-size: 28px !important;
+}
+
+@media only screen and (max-width: 750px) {
+    #desktopCarouselBanner2 {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 751px) {
+    #mobileCarouselBanner2 {
+        display: none !important;
+    }
+}

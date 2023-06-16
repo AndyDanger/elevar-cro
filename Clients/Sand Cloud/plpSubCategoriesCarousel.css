@@ -5,7 +5,9 @@ section[data-comp="collection-hero"] {
 }
 
 .subCategoriesCarousel {
+    overflow: hidden;
     text-align: center;
+    margin: 0px auto;
     max-width: 1050px;
     padding: 10px !important;
 }
