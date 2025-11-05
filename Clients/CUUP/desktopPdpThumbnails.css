@@ -1,10 +1,10 @@
-#pdp {
-    padding: 0px 20%;
+.pdp__images {
+    margin-top: -10px;
 }
 
 .carousel-nav,
 .carousel-main {
-    padding: 10px;
+    padding: 0px 10px;
     display: inline-grid !important;
     grid-template-columns: none !important;
 }
@@ -23,7 +23,11 @@
 }
 
 @media only screen and (min-width: 1300px) {
+    #pdp {
+        padding: 0px 10%;
+    }
+
     .pdp__content__inner {
-        padding: 0px 40px !important;
+        padding: 0px 25px !important;
     }
 }

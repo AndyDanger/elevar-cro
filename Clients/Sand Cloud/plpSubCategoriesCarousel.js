@@ -118,6 +118,12 @@ let newReleasesArray = [
         header: `Spring into Summer`,
         description: `You're invited to a Sand Cloud pool party.`
     },
+    {
+        href: `https://www.sandcloud.com/collections/color-splash`,
+        img: `https://i.imgur.com/bWEgq3tl.jpg`,
+        header: `Color Splash`,
+        description: `Inspired by summer, for summer.`
+    },
 
 ]
 

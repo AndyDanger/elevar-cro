@@ -1,0 +1,34 @@
+[data-comp="MobileCollectionsNav"],
+section[data-comp="imageHero"],
+section[data-comp="collection-hero"] {
+    display: none !important;
+}
+
+.subCategoriesCarousel {
+    overflow: hidden;
+    text-align: center;
+    margin: 0px auto;
+    max-width: 1050px;
+    padding: 10px !important;
+}
+
+.subCategoriesCarouselTitle {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 10px !important;
+}
+
+.subCategoriesCarouselHeader {
+    margin-left: -5px;
+    margin-right: -5px;
+    font-size: 14px;
+    text-decoration-line: underline;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    margin-bottom: 2.5px;
+}
+
+.subCategoriesCarouselDescription {
+    font-size: 12px;
+}

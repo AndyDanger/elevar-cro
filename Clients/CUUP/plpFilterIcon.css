@@ -1,0 +1,13 @@
+.toggle-btns__filters-product-view .filter-btn {
+    background: black !important;
+    color: white !important;
+    padding: 7px 10px !important;
+}
+
+.toggle-btns__filters-product-view .filter-btn path {
+    fill: white !important;
+}
+
+.filter-sort-container .toggle-btns__filters-product-view {
+    align-items: center;
+}

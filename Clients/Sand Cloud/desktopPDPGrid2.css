@@ -1,0 +1,56 @@
+.swiper-destroyed [data-comp="ProductImagesThumbs"],
+.hidden {
+    display: none !important;
+}
+
+[data-comp="BackpackImageRatio"] > span {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.swiper-container {
+    max-width: unset !important;
+}
+
+.swiper-destroyed .swiper-wrapper {
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.swiper-destroyed .swiper-slide {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50%;
+    padding: 10px;
+    text-align: center;
+    height: auto !important;
+}
+
+.loadMoreButton {
+    display: block;
+    text-decoration: none;
+    font-family: Gotham, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    padding: 0px 30px;
+    border-radius: 6px;
+    height: 48px;
+    line-height: 46px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: var(--theme-ui-colors-dark);
+    color: var(--theme-ui-colors-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease-in-out 0s;
+    min-width: 100px;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    margin: 10px auto 0px auto;
+}

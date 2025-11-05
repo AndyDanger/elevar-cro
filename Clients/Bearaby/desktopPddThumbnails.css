@@ -1,0 +1,43 @@
+.product.grid {
+    flex-wrap: nowrap !important;
+}
+
+.carousel-nav,
+.carousel-main {
+    padding: 10px;
+    display: inline-grid !important;
+    grid-template-columns: none !important;
+}
+
+
+.product-gallery-grid.carousel-nav {
+    flex: 0 0 0;
+    margin-right: 15px;
+    width: 80px !important;
+}
+
+.carousel-nav .media {
+    background-color: transparent !important;
+}
+
+.carousel-nav * {
+    width: 80px !important;
+}
+
+.carousel-nav img,
+.carousel-nav video {
+    padding: 5px;
+}
+
+.product-gallery-grid.carousel-main {
+    max-width: 600px;
+    max-height: 600px;
+    overflow-y: clip;
+    width: calc(60% - 100px) !important;
+}
+
+@media only screen and (min-width: 1300px) {
+    .pdp__content__inner {
+        padding: 0px 40px !important;
+    }
+}

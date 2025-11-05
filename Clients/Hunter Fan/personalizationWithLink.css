@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px) {
+  .dsk-banner {
+    display : none !important;
+  }
+}
+@media screen and (min-width: 769px) {
+  .mb-banner {
+    display : none !important;
+  }
+
+  .dsk-banner {
+    margin-bottom : 10px !important;
+  }
+}

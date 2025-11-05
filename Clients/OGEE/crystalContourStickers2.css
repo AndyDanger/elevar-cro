@@ -1,0 +1,10 @@
+.vertical .stickerImage {
+    width: 25%;
+    min-width: 90px;
+}
+
+.horizontal .stickerImage {
+    width: 50%;
+    min-width: 180px;
+    margin-left: 5%;
+}

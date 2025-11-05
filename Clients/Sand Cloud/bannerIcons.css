@@ -16,3 +16,13 @@
   50% { transform: translate(0px, 0px) rotate(15deg); }
   100% { transform: translate(0px, 0px) rotate(-15deg); }
 }
+
+.icon {
+  animation: shake 1.5s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(-15deg); }
+  50% { transform: translate(0px, 0px) rotate(15deg); }
+  100% { transform: translate(0px, 0px) rotate(-15deg); }
+}

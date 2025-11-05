@@ -55,8 +55,9 @@ let main = () => {
         `background-repeat: no-repeat`,
     ]
 
-    console.log(`%c Debugging Preview Link: Variant ${storageVariant}`, styles.join(`;`))
+    window.elevarConsoleLogged ? null : console.log(`%c Debugging Preview Link: Variant ${storageVariant}`, styles.join(`;`))
     variants[storageVariant]() // call the variant's function
+    window.elevarConsoleLogged = true
 }
 
 let setCookie = (cname, cvalue, exdays) => {

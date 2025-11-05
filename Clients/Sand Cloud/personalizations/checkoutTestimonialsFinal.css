@@ -1,0 +1,43 @@
+#desktopTestimonialsDiv, #mobileTestimonialsDiv {
+  text-align : center;
+  font-size : 16px;
+  margin-top : 15px;
+  line-height : 24px;
+  color : black;
+  padding : 20px 10px;
+  position : relative;
+}
+
+#desktopTestimonialsDiv::before, #mobileTestimonialsDiv::before {
+  border : 2px solid black;
+  content : "";
+  width : 100%;
+  height : 100%;
+  position : absolute;
+  top : -5px;
+  left : -5px;
+}
+
+#desktopTestimonialsDiv::after, #mobileTestimonialsDiv::after {
+  border : 2px solid rgb(172, 216, 213);
+  content : "";
+  width : 100%;
+  height : 100%;
+  position : absolute;
+  right : -5px;
+  bottom : -5px;
+}
+
+.stars {
+  font-size : 22px;
+}
+@media only screen and (min-width: 1000px) {
+  #mobileTestimonialsDiv {
+    display : none;
+  }
+}
+@media only screen and (max-width: 999px) {
+  #desktopTestimonialsDiv {
+    display : none;
+  }
+}

@@ -1,0 +1,10 @@
+#whitePaperAnnouncementBanner {
+    text-align: center;
+    background-color: #033e4e;
+    padding: 8px 0px;
+}
+
+#whitePaperAnnouncementBanner > a {
+    color:  white;
+    text-decoration: underline;
+}
